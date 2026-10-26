@@ -45,13 +45,19 @@ La taille du paquet, le RSS et le PSS doivent être mesurés, avec leur unité. 
 
 Les résultats de cette livraison sont enregistrés dans `validation.json` à la fin des vérifications. Les captures de `screenshots/` montrent uniquement des données synthétiques ou le catalogue embarqué.
 
-## Résultats locaux du 25 octobre 2026
+## Résultats locaux des 25–26 octobre 2026
 
 - 11 tests moteur/HTTPS/sauvegarde réussis ; les 2 scénarios Docker ignorés par défaut ont ensuite été exécutés et réussis sur le vrai démon.
 - 4 tests Playwright réussis, avec Axe sur les 7 espaces et le formulaire.
 - Compilation TypeScript/Vite et Clippy tous targets avec `-D warnings` réussis.
 - Binaire natif démarré dans un profil isolé ; diagnostic Docker prêt après installation utilisateur du plugin Buildx officiel manquant.
-- Paquet Debian de 6 892 682 octets (6,57 Mio), binaire, launcher et icônes vérifiés dans l’archive.
-- Pics sur huit secondes : 264 726 Kio PSS (258,5 Mio), 635 708 Kio RSS cumulés (620,8 Mio), trois processus. Ce profil vide de démarrage n’est pas une mesure de charge.
+- Paquet Debian construit sur Bookworm de 7 092 170 octets (6,76 Mio), binaire, launcher et icônes vérifiés dans l’archive.
+- Pics sur huit secondes : 293 029 Kio PSS (286,2 Mio), 662 892 Kio RSS cumulés (647,4 Mio), trois processus. Ce profil vide de démarrage n’est pas une mesure de charge.
 
 Les détails structurés, empreintes et versions figurent dans `validation.json`, `package-linux.json`, `resources-linux.json` et `tooling-linux.json`. Aucune réussite de CI distante ou de plateforme non exécutée n’est revendiquée.
+
+Le test volontaire `cargo run --manifest-path src-tauri/Cargo.toml --no-default-features --example keyring-smoke` a également validé le vrai trousseau Secret Service de la session Linux, déjà déverrouillé : création d’une clé temporaire, enregistrement d’une fiche synthétique, fermeture du Store puis réouverture et lecture. L’entrée de trousseau de ce profil temporaire est nettoyée à la fin ; aucune fiche utilisateur n’est lue.
+
+Le build Debian Bookworm a aussi produit une AppImage. Son diagnostic natif est prêt sur le poste de recette avec `APPIMAGE_EXTRACT_AND_RUN=1`. Les premières mesures du build Arch restent conservées sous `reference-arch/` et ne sont pas attribuées au binaire Debian final.
+
+Un paquet Arch `.pkg.tar.zst` a été construit avec makepkg/fakeroot à partir du binaire Debian. Le binaire, le launcher et l’icône sont vérifiés dans l’archive. Aucune installation de paquet n’a été effectuée sur le poste de recette ; le binaire direct reste lancé par `run.sh`.

@@ -1,0 +1,24 @@
+{
+  "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
+  "bytes": 6892682,
+  "sha256": "c13f2e9c00878c9a6ac950e08dd5dcc0f77aed6df4710b0ef3a73cb75433305e",
+  "installed_paths": [
+    "usr",
+    "usr/share",
+    "usr/share/applications",
+    "usr/share/applications/DockForge Studio.desktop",
+    "usr/share/icons",
+    "usr/share/icons/hicolor",
+    "usr/share/icons/hicolor/256x256@2",
+    "usr/share/icons/hicolor/256x256@2/apps",
+    "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
+    "usr/share/icons/hicolor/128x128",
+    "usr/share/icons/hicolor/128x128/apps",
+    "usr/share/icons/hicolor/128x128/apps/dockforge.png",
+    "usr/share/icons/hicolor/32x32",
+    "usr/share/icons/hicolor/32x32/apps",
+    "usr/share/icons/hicolor/32x32/apps/dockforge.png",
+    "usr/bin",
+    "usr/bin/dockforge"
+  ]
+}

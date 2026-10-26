@@ -1,0 +1,8 @@
+{
+  "file": "DockForge Studio_2.0.0-alpha.1_amd64.AppImage",
+  "bytes": 102328824,
+  "sha256": "041c91db81a86f50a8c6334e41f3f0dcd1fd9eec9e4f4cad142a6597eace843c",
+  "doctor_ready": true,
+  "execution_mode_tested": "APPIMAGE_EXTRACT_AND_RUN=1",
+  "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1"
+}

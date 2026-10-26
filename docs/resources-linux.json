@@ -1,9 +1,10 @@
 {
+  "binary_sha256": "77214cd6f028354f01ff0d012b56823ba64968b8beec082315de07184fba178c",
   "platform": "Linux",
   "scope": "Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.",
   "desktop": {
-    "rss_kib": 635708,
-    "pss_kib": 264726,
+    "rss_kib": 662892,
+    "pss_kib": 293029,
     "processes": 3
   }
 }

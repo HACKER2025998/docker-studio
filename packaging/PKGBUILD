@@ -11,5 +11,7 @@ source=("dockforge.tar.gz::${DOCKFORGE_RELEASE_URL:?Définir une URL de release 
 sha256sums=("${DOCKFORGE_RELEASE_SHA256:?Définir le SHA-256 de la release}")
 package() {
   install -Dm755 "$srcdir/dockforge" "$pkgdir/usr/bin/dockforge"
+  install -Dm644 "$srcdir/dockforge.desktop" "$pkgdir/usr/share/applications/dockforge.desktop"
+  install -Dm644 "$srcdir/dockforge.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/dockforge.png"
   install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

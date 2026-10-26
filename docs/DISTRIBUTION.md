@@ -42,3 +42,9 @@ Windows Authenticode, certificat Apple Developer ID/notarisation et signatures d
 ## Désinstallation
 
 Supprimer le logiciel ne supprime pas les conteneurs, volumes, exports JSON, sauvegardes ou contributions. Exportez/sauvegardez ce qui doit être conservé puis nettoyez explicitement les ressources correspondantes. Un volume de base peut contenir les seules données d’un projet : le désinstalleur ne doit pas le supprimer pour rendre le poste « propre ».
+
+## Construction Linux isolée
+
+`./scripts/build-portable-linux.sh` construit sur Debian Bookworm avec Rust 1.88 et Node 24, dans un conteneur temporaire dont le socket Docker n’est pas monté. Les sources sont en lecture seule et les résultats vont sous `dist-linux/`. Le script télécharge les dépendances de build et vérifie l’archive Node avec les empreintes officielles. Le mode optionnel `DOCKFORGE_OFFLINE=true` nécessite un cache Cargo complet et déjà résolu ; il ne rend pas les étapes APT/npm hors ligne.
+
+Sur Arch récent, linuxdeploy peut échouer avec son ancien outil strip et les nouveaux chargeurs GDK/Glycin. La construction Debian évite de fabriquer une arborescence de bibliothèques fictive sur l’hôte. La compatibilité glibc du système de construction définit toujours une borne : testez le résultat sur vos distributions cibles. Voir la [documentation Tauri AppImage](https://v2.tauri.app/distribute/appimage/).

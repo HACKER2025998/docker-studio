@@ -10,3 +10,8 @@ __pycache__/
 .tools/
 dist-linux/
 *.tsbuildinfo
+
+# Exports locaux : éviter l’ajout accidentel de secrets ou de sauvegardes au dépôt.
+*_credentials.json
+*.dfv
+.env.*

@@ -22,8 +22,12 @@
     "clippy_all_targets": "passed with -D warnings",
     "frontend": "TypeScript strict + Vite build passed",
     "comment_annotations": "Rust, TypeScript, JSX, CSS et client LAN ; JavaScript émis comparé par AST",
-    "native_desktop": "started for eight seconds, empty isolated profile",
-    "linux_debian": "built and archive contents inspected"
+    "native_desktop": "Debian-built binary started for eight seconds, empty isolated profile, three processes",
+    "linux_debian": "built and archive contents inspected",
+    "native_keyring_linux": "Real key creation, SQLite persistence, Store reopen and temporary credential cleanup passed",
+    "linux_baseline_build": "Debian Bookworm, Rust 1.88.0, deb and AppImage passed",
+    "appimage_doctor": "passed on host in extract-and-run mode",
+    "arch_linux": "makepkg réussi, binaire/desktop/icône vérifiés ; paquet non installé"
   },
   "not_certified": [
     "Installation Debian sur machine vierge",
@@ -45,23 +49,25 @@
     }
   ],
   "resources": {
+    "binary_sha256": "77214cd6f028354f01ff0d012b56823ba64968b8beec082315de07184fba178c",
     "platform": "Linux",
     "scope": "Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.",
     "desktop": {
-      "rss_kib": 635708,
-      "pss_kib": 264726,
+      "rss_kib": 662892,
+      "pss_kib": 293029,
       "processes": 3
     }
   },
   "package": {
     "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
-    "bytes": 6892682,
-    "sha256": "c13f2e9c00878c9a6ac950e08dd5dcc0f77aed6df4710b0ef3a73cb75433305e",
+    "bytes": 7092170,
+    "sha256": "2d208a87b49894eb1e7a3c5008e2d1ca892e7c8df3a66c5157c9f20e55f2fe8e",
+    "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1",
     "installed_paths": [
       "usr",
+      "usr/bin",
+      "usr/bin/dockforge",
       "usr/share",
-      "usr/share/applications",
-      "usr/share/applications/DockForge Studio.desktop",
       "usr/share/icons",
       "usr/share/icons/hicolor",
       "usr/share/icons/hicolor/256x256@2",
@@ -73,14 +79,54 @@
       "usr/share/icons/hicolor/32x32",
       "usr/share/icons/hicolor/32x32/apps",
       "usr/share/icons/hicolor/32x32/apps/dockforge.png",
-      "usr/bin",
-      "usr/bin/dockforge"
-    ]
+      "usr/share/applications",
+      "usr/share/applications/DockForge Studio.desktop"
+    ],
+    "control": "Package: dock-forge-studio\nVersion: 2.0.0-alpha.1\nArchitecture: amd64\nInstalled-Size: 16146\nMaintainer: Kossi Bernard Etonam ADJOGBLE\nPriority: optional\nDepends: libwebkit2gtk-4.1-0, libgtk-3-0, libsecret-1-0, libwebkit2gtk-4.1-0, libgtk-3-0\nDescription: Atelier Docker local et coffre chiffré\n (none)\n"
   },
   "doctor": {
     "ready": true
   },
   "rust": "rustc 1.99.0 (b940084d7 2026-09-28) (Arch Linux rust 1:1.99.0-1)",
   "node": "v26.11.1",
-  "docker": "29.9.0"
+  "docker": "29.9.0",
+  "delivery_session_utc": "2026-10-25 / 2026-10-26",
+  "appimage": {
+    "file": "DockForge Studio_2.0.0-alpha.1_amd64.AppImage",
+    "bytes": 102328824,
+    "sha256": "041c91db81a86f50a8c6334e41f3f0dcd1fd9eec9e4f4cad142a6597eace843c",
+    "doctor_ready": true,
+    "execution_mode_tested": "APPIMAGE_EXTRACT_AND_RUN=1",
+    "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1"
+  },
+  "release_build_toolchain": [
+    "rustc 1.88.0 (6b00bc388 2025-06-23)",
+    "v24.22.1"
+  ],
+  "delivery_date_utc": "2026-10-26",
+  "arch_package": {
+    "file": "dockforge-studio-bin-2.0.0.alpha.1-1-x86_64.pkg.tar.zst",
+    "bytes": 6718017,
+    "sha256": "d28b49ba1097804af190e2ba95e4c4da5517a0604db2a03466262d61ab35c910",
+    "installed_paths": [
+      ".BUILDINFO",
+      ".MTREE",
+      ".PKGINFO",
+      "usr/",
+      "usr/bin/",
+      "usr/bin/dockforge",
+      "usr/share/",
+      "usr/share/applications/",
+      "usr/share/applications/dockforge.desktop",
+      "usr/share/icons/",
+      "usr/share/icons/hicolor/",
+      "usr/share/icons/hicolor/128x128/",
+      "usr/share/icons/hicolor/128x128/apps/",
+      "usr/share/icons/hicolor/128x128/apps/dockforge.png",
+      "usr/share/licenses/",
+      "usr/share/licenses/dockforge-studio-bin/",
+      "usr/share/licenses/dockforge-studio-bin/LICENSE"
+    ],
+    "build": "makepkg / fakeroot, sans installation sur le poste"
+  }
 }

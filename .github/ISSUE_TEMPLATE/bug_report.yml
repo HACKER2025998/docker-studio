@@ -1,0 +1,32 @@
+name: Signaler un problème
+description: Un parcours ne se déroule pas comme prévu.
+title: '[Bug] '
+body:
+  - type: markdown
+    attributes:
+      value: N’ajoutez aucun vrai mot de passe, export d’identifiants ou fichier .env.
+  - type: input
+    id: environment
+    attributes:
+      label: Système, version DockForge et Docker
+      placeholder: Debian 12, DockForge 2.0.0-alpha.1, Docker Engine…
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Comment reproduire ?
+      description: Étapes minimales, service et configuration synthétique.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Résultat attendu et résultat observé
+    validations:
+      required: true
+  - type: textarea
+    id: diagnosis
+    attributes:
+      label: Diagnostic ou logs filtrés
+      description: Retirez les secrets et les informations privées avant envoi.

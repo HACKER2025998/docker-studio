@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=DockForge Studio
+Comment=Atelier Docker local et coffre d’accès chiffré
+Exec=dockforge
+Icon=dockforge
+Terminal=false
+Categories=Development;Utility;
+StartupWMClass=dockforge

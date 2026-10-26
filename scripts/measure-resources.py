@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Mesure Linux du démarrage natif, avec profil local isolé et descendants WebKit inclus."""
 from pathlib import Path
+import argparse
+import hashlib
 import json
 import os
 import signal
@@ -9,7 +11,9 @@ import tempfile
 import time
 
 ROOT=Path(__file__).resolve().parents[1]
-BINARY=ROOT/'src-tauri/target/release/dockforge'
+parser=argparse.ArgumentParser()
+parser.add_argument('--binary',type=Path,default=ROOT/'src-tauri/target/release/dockforge')
+BINARY=parser.parse_args().binary.resolve()
 
 def descendants(pid):
     result=[pid]
@@ -33,7 +37,7 @@ def sample(pid):
 with tempfile.TemporaryDirectory(prefix='dockforge-memory-') as folder:
     env=os.environ.copy();env['DOCKFORGE_DATA_DIR']=folder
     process=subprocess.Popen([str(BINARY)],env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
-    report={'platform':'Linux','scope':'Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.','desktop':{'rss_kib':0,'pss_kib':0,'processes':0}}
+    report={'binary_sha256':hashlib.sha256(BINARY.read_bytes()).hexdigest(),'platform':'Linux','scope':'Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.','desktop':{'rss_kib':0,'pss_kib':0,'processes':0}}
     try:
         for _ in range(32):
             time.sleep(.25)

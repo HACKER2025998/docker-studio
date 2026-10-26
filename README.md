@@ -41,6 +41,19 @@ Aucun compte cloud ni télémétrie applicative n’est nécessaire. **Le télé
 
 Dans ce dossier, `./run.sh` ouvre le binaire Linux déjà compilé lorsqu’il est présent dans `dist-linux/`. `./run.sh --doctor` produit le diagnostic sans fenêtre. `./dev.sh` ouvre le mode développement natif et prépare le PATH de npm pour cet environnement. Ces scripts n’installent pas Docker et ne modifient pas vos privilèges.
 
+La livraison locale contient aussi les formats d’installation suivants :
+
+```sh
+# Debian / Ubuntu :
+sudo apt install "./dist-linux/DockForge Studio_2.0.0-alpha.1_amd64.deb"
+# Arch :
+sudo pacman -U ./dist-linux/dockforge-studio-bin-2.0.0.alpha.1-1-x86_64.pkg.tar.zst
+# AppImage, si FUSE n’est pas disponible :
+APPIMAGE_EXTRACT_AND_RUN=1 "./dist-linux/DockForge Studio_2.0.0-alpha.1_amd64.AppImage"
+```
+
+Les paquets locaux ne sont pas une publication AUR/APT/winget. L’archive binaire contient le lanceur desktop, l’icône et la licence ; l’archive `source` contient tout le projet et ce guide.
+
 ## Démarrer depuis les sources
 
 ### Prérequis communs
@@ -146,7 +159,9 @@ Le groupe Docker permet généralement de prendre le contrôle de l’hôte. Pou
 
 Sous Windows, les actions prévues sont l’installation de Docker Desktop avec winget/UAC et son lancement depuis le chemin standard. Si vous avez choisi un chemin personnalisé, lancez Docker Desktop depuis votre système puis rafraîchissez.
 
-Le bouton d’installation Linux appelle les paquets connus via Polkit : Arch utilise pacman ; Debian/Ubuntu utilise Docker CE et ses plugins **après configuration préalable du dépôt officiel**. Il ne configure pas un dépôt tiers à votre place. Les instructions Linux d’installation restent explicites : le programme ne modifie pas silencieusement vos dépôts APT, vos clés de signature, votre configuration WSL ou vos paramètres noyau.
+Le bouton d’installation Linux appelle les paquets connus via Polkit : Arch utilise pacman ; Debian/Ubuntu utilise Docker CE et ses plugins **après configuration préalable du dépôt officiel**. Il ne configure pas un dépôt tiers à votre place. Les contextes nommés du CLI Docker ne sont pas relus par Bollard. Pour un moteur rootless ou un socket Desktop personnalisé sous Unix, lancez le logiciel avec `DOCKER_HOST=unix:///chemin/du/docker.sock` ; ce chemin reste local. Les variables des fichiers de configuration du shell ne sont pas automatiquement disponibles à une application ouverte depuis le menu du bureau.
+
+Les instructions Linux d’installation restent explicites : le programme ne modifie pas silencieusement vos dépôts APT, vos clés de signature, votre configuration WSL ou vos paramètres noyau.
 
 ## Créer son premier PostgreSQL
 
@@ -488,7 +503,7 @@ Les paquets tiers, images, modèles IA et services conteneurisés conservent leu
 
 ## État de réception
 
-La recette locale valide **11 tests Rust, 2 scénarios Docker réels et 4 tests Playwright**, ainsi que Clippy strict. Le paquet Debian produit fait **6,57 Mio** ; le démarrage natif a été vérifié dans un profil isolé.
+La recette locale valide **11 tests Rust, 2 scénarios Docker réels et 4 tests Playwright**, ainsi que Clippy strict. Le paquet Debian construit sur Bookworm fait **6,76 Mio** ; le démarrage natif a été vérifié dans un profil isolé (286,2 Mio PSS au pic sur huit secondes). Une AppImage est également produite et son diagnostic a été exécuté.
 
 Les résultats reproductibles et leurs limites sont consignés dans [RECETTE.md](docs/RECETTE.md). Les formats d’installation multi-OS sont préparés ; l’installation et la signature doivent être validées sur chaque cible réelle. Ni la présence d’un fichier CI ni celle d’un template de paquet ne prouve sa publication.
 
