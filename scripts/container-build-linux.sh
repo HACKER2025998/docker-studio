@@ -21,6 +21,6 @@ export NO_STRIP=true
 npm run tauri -- build --bundles deb,appimage
 cp src-tauri/target/release/bundle/deb/*.deb /out/
 cp src-tauri/target/release/bundle/appimage/*.AppImage /out/
-cp src-tauri/target/release/dockforge /out/dockforge-debian.bin
+cp src-tauri/target/release/dockforge /out/dockforge.bin
 rustc --version > /out/toolchain.txt
 node --version >> /out/toolchain.txt

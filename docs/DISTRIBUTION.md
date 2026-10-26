@@ -48,3 +48,7 @@ Supprimer le logiciel ne supprime pas les conteneurs, volumes, exports JSON, sau
 `./scripts/build-portable-linux.sh` construit sur Debian Bookworm avec Rust 1.88 et Node 24, dans un conteneur temporaire dont le socket Docker n’est pas monté. Les sources sont en lecture seule et les résultats vont sous `dist-linux/`. Le script télécharge les dépendances de build et vérifie l’archive Node avec les empreintes officielles. Le mode optionnel `DOCKFORGE_OFFLINE=true` nécessite un cache Cargo complet et déjà résolu ; il ne rend pas les étapes APT/npm hors ligne.
 
 Sur Arch récent, linuxdeploy peut échouer avec son ancien outil strip et les nouveaux chargeurs GDK/Glycin. La construction Debian évite de fabriquer une arborescence de bibliothèques fictive sur l’hôte. La compatibilité glibc du système de construction définit toujours une borne : testez le résultat sur vos distributions cibles. Voir la [documentation Tauri AppImage](https://v2.tauri.app/distribute/appimage/).
+
+## Version MSI et console Windows
+
+L’application garde la version sémantique `2.0.0-alpha.1`. `tauri.windows.conf.json` fixe séparément la version MSI numérique `2.0.0.1`, car WiX n’accepte pas le suffixe alphanumérique de la préversion. Le code d’upgrade est stable et doit être conservé lors des évolutions. Le binaire release utilise le sous-système GUI ; le mode `--doctor` préserve une redirection stdout existante et n’attache la console parente que si nécessaire. La CI vérifie le sous-système du PE et le JSON obtenu par redirection.

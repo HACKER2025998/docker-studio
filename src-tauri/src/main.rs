@@ -1,3 +1,11 @@
+// Une ouverture desktop Windows ne crée pas de console supplémentaire en release.
+// @ligne [module] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
+#![cfg_attr(
+    // @ligne [module] Vérifie cette propriété observable pour détecter une régression du contrat.
+    all(target_os = "windows", not(debug_assertions)),
+    // @ligne [module] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
+    windows_subsystem = "windows"
+)]
 //! Adaptateur desktop : la fenêtre ne reçoit que des commandes métier, jamais un shell général.
 // @ligne [module] Importe explicitement les types et fonctions nécessaires à ce module.
 use dockforge_core::{
@@ -409,12 +417,41 @@ async fn dispatch(
         })
 }
 
+// @ligne [dispatch] Applique cet attribut au type ou à la fonction qui suit.
+#[cfg(windows)]
+// @ligne [attach_parent_console_for_cli] Délimite cette opération pour isoler sa validation et son résultat.
+fn attach_parent_console_for_cli() {
+    // Les signatures correspondent à Kernel32 : aucune mémoire fournie par un appelant n’est déréférencée.
+    // @ligne [attach_parent_console_for_cli] Applique cet attribut au type ou à la fonction qui suit.
+    #[link(name = "kernel32")]
+    // @ligne [attach_parent_console_for_cli] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
+    unsafe extern "system" {
+        // @ligne [GetStdHandle] Délimite cette opération pour isoler sa validation et son résultat.
+        fn GetStdHandle(kind: u32) -> *mut core::ffi::c_void;
+        // @ligne [AttachConsole] Délimite cette opération pour isoler sa validation et son résultat.
+        fn AttachConsole(process_id: u32) -> i32;
+    }
+    // Un handle hérité valide peut être un fichier ou un pipe : il faut préserver les redirections.
+    // @ligne [AttachConsole] Calcule cette valeur avant de l’utiliser dans la suite de l’opération.
+    let output = unsafe { GetStdHandle((-11_i32) as u32) };
+    // @ligne [AttachConsole] Vérifie cette condition avant d’appliquer l’action protégée.
+    if output.is_null() || output as isize == -1 {
+        // ATTACH_PARENT_PROCESS utilise seulement la console existante du parent, sans en créer une.
+        // @ligne [AttachConsole] Calcule cette valeur avant de l’utiliser dans la suite de l’opération.
+        let _ = unsafe { AttachConsole(u32::MAX) };
+    }
+}
+
 // @ligne [main] Délimite cette opération pour isoler sa validation et son résultat.
 fn main() {
     // @ligne [main] Calcule cette valeur avant de l’utiliser dans la suite de l’opération.
     let _ = rustls::crypto::ring::default_provider().install_default();
     // @ligne [main] Vérifie cette condition avant d’appliquer l’action protégée.
     if std::env::args().any(|a| a == "--doctor") {
+        // @ligne [main] Applique cet attribut au type ou à la fonction qui suit.
+        #[cfg(windows)]
+        // @ligne [main] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
+        attach_parent_console_for_cli();
         // @ligne [main] Calcule cette valeur avant de l’utiliser dans la suite de l’opération.
         let runtime = tokio::runtime::Runtime::new().expect("Runtime système");
         // @ligne [main] Calcule cette valeur avant de l’utiliser dans la suite de l’opération.

@@ -46,19 +46,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
+        if: runner.os != 'Linux'
         with:
           node-version: '24'
           cache: npm
       - uses: dtolnay/rust-toolchain@stable
-      - if: runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libsecret-1-dev libdbus-1-dev
+        if: runner.os != 'Linux'
+      - name: Paquets Linux sur la base Debian Bookworm
+        if: runner.os == 'Linux'
+        run: ./scripts/build-portable-linux.sh
       - run: npm ci
+        if: runner.os != 'Linux'
       - run: npm run tauri -- build --bundles ${{ matrix.bundles }}
-        env:
-          NO_STRIP: 'true'
+        if: runner.os != 'Linux'
+      - name: Exécutable Windows GUI et diagnostic JSON redirigé
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $binary = Resolve-Path 'src-tauri/target/release/dockforge.exe'
+          $bytes = [System.IO.File]::ReadAllBytes($binary)
+          $peOffset = [BitConverter]::ToInt32($bytes, 0x3c)
+          $subsystem = [BitConverter]::ToUInt16($bytes, $peOffset + 24 + 68)
+          if ($subsystem -ne 2) { throw 'Le binaire doit utiliser le sous-système GUI Windows.' }
+          $process = Start-Process -FilePath $binary -ArgumentList '--doctor' -NoNewWindow -Wait -PassThru -RedirectStandardOutput 'doctor-windows.json' -RedirectStandardError 'doctor-windows.stderr'
+          if ($process.ExitCode -ne 0) { throw 'Le diagnostic natif Windows a échoué.' }
+          $report = Get-Content -Raw 'doctor-windows.json' | ConvertFrom-Json
+          if ($report.os -ne 'windows') { throw 'Le diagnostic Windows doit produire un JSON valide.' }
       - uses: actions/upload-artifact@v4
         with:
           name: dockforge-${{ runner.os }}
           path: |
             src-tauri/target/release/bundle
+            dist-linux
+            doctor-windows.json
           if-no-files-found: error

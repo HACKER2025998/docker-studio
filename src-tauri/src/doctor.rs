@@ -56,6 +56,11 @@ pub async fn output(program: &str, args: &[&str]) -> Result<String> {
 async fn output_timeout(program: &str, args: &[&str], seconds: u64) -> Result<String> {
     // @ligne [output_timeout] Prépare une valeur locale qui sera complétée pendant cette opération.
     let mut cmd = Command::new(program);
+    // Les sondes capturent leurs sorties ; elles ne doivent pas ouvrir une fenêtre console sous Windows.
+    // @ligne [output_timeout] Applique cet attribut au type ou à la fonction qui suit.
+    #[cfg(windows)]
+    // @ligne [output_timeout] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
+    cmd.creation_flags(0x08000000);
     // @ligne [output_timeout] Renseigne cette partie du traitement ; les validations englobantes définissent ses conditions d’exécution.
     cmd.args(args).kill_on_drop(true);
     // @ligne [output_timeout] Attend l’opération asynchrone avant d’utiliser son résultat.
