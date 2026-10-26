@@ -15,11 +15,18 @@ parser=argparse.ArgumentParser()
 parser.add_argument('--binary',type=Path,default=ROOT/'src-tauri/target/release/dockforge')
 BINARY=parser.parse_args().binary.resolve()
 
-def descendants(pid):
+def descendants(pid,seen=None):
+    # Les processus lancés par un worker Tokio peuvent appartenir à un autre thread que le chef.
+    if seen is None:seen=set()
+    if pid in seen:return []
+    seen.add(pid)
     result=[pid]
+    children=set()
     try:
-        children=(Path('/proc')/str(pid)/'task'/str(pid)/'children').read_text().split()
-        for child in children:result.extend(descendants(int(child)))
+        for task in (Path('/proc')/str(pid)/'task').iterdir():
+            try:children.update(int(child) for child in (task/'children').read_text().split())
+            except (FileNotFoundError,PermissionError):pass
+        for child in children:result.extend(descendants(child,seen))
     except (FileNotFoundError,PermissionError):pass
     return result
 
@@ -37,7 +44,7 @@ def sample(pid):
 with tempfile.TemporaryDirectory(prefix='dockforge-memory-') as folder:
     env=os.environ.copy();env['DOCKFORGE_DATA_DIR']=folder
     process=subprocess.Popen([str(BINARY)],env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True)
-    report={'binary_sha256':hashlib.sha256(BINARY.read_bytes()).hexdigest(),'platform':'Linux','scope':'Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.','desktop':{'rss_kib':0,'pss_kib':0,'processes':0}}
+    report={'binary_sha256':hashlib.sha256(BINARY.read_bytes()).hexdigest(),'platform':'Linux','scope':'Pics échantillonnés toutes les 250 ms durant huit secondes de démarrage, écran Doctor, profil vide ; descendants de tous les threads inclus sans double compte. Pas une mesure de charge ni une garantie Windows/macOS.','desktop':{'rss_kib':0,'pss_kib':0,'processes':0}}
     try:
         for _ in range(32):
             time.sleep(.25)

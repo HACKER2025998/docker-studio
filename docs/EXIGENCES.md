@@ -32,4 +32,4 @@ Le mode LAN actuel partage des fichiers, avec archivage manuel des dossiers et c
 
 Le scan réseau actuel ne capture pas LLDP/CDP et ne collecte pas SNMP/WAN. Le Command Vault ne dispose pas de daemon capturant chaque nouvelle commande pendant que l’application est fermée ; il rattrape les historiques sélectionnés au lancement suivant.
 
-La recette Windows/macOS, l’installation sur machines vierges, les images ARM/x86, les identités de signature et les essais d’une classe entière nécessitent leurs environnements cibles. Le workflow de build prépare ces contrôles ; seul son résultat exécuté est une preuve. La version reste alpha tant que ces points de réception ne sont pas validés.
+Les builds natifs Windows/macOS et le diagnostic CLI Windows passent en CI. L’installation sur machines vierges, le vrai backend Docker Desktop Windows/macOS, les images ARM/x86, les identités de signature et les essais d’une classe entière nécessitent leurs environnements cibles. Le workflow de build prépare ces contrôles ; seul son résultat exécuté est une preuve. La version reste alpha tant que ces points de réception ne sont pas validés.

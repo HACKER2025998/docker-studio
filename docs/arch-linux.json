@@ -1,7 +1,7 @@
 {
   "file": "dockforge-studio-bin-2.0.0.alpha.1-1-x86_64.pkg.tar.zst",
-  "bytes": 6718017,
-  "sha256": "d28b49ba1097804af190e2ba95e4c4da5517a0604db2a03466262d61ab35c910",
+  "bytes": 6718025,
+  "sha256": "5896b3b35ac378fade3225f06538a3c2b5701cbf8f33bfe4e9f3d109b9cb7e0d",
   "installed_paths": [
     ".BUILDINFO",
     ".MTREE",
@@ -21,5 +21,5 @@
     "usr/share/licenses/dockforge-studio-bin/",
     "usr/share/licenses/dockforge-studio-bin/LICENSE"
   ],
-  "build": "makepkg / fakeroot, sans installation sur le poste"
+  "build": "makepkg/fakeroot à partir du binaire CI Debian ; sans installation sur le poste"
 }

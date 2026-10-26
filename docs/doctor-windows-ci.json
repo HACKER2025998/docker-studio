@@ -1,0 +1,43 @@
+{
+  "os": "windows",
+  "arch": "x86_64",
+  "distribution": "windows",
+  "ready": false,
+  "checks": [
+    {
+      "id": "docker",
+      "title": "Client Docker",
+      "ok": true,
+      "detail": "Docker version 29.7.2, build a7dcaa6"
+    },
+    {
+      "id": "compose",
+      "title": "Docker Compose",
+      "ok": true,
+      "detail": "Docker Compose version v2.40.3"
+    },
+    {
+      "id": "buildx",
+      "title": "Buildx / BuildKit",
+      "ok": false,
+      "detail": "docker : docker: unknown command: docker buildx\n\nRun 'docker --help' for more information\n"
+    },
+    {
+      "id": "wsl",
+      "title": "WSL2",
+      "ok": true,
+      "detail": "D\u0000e\u0000f\u0000a\u0000u\u0000l\u0000t\u0000 \u0000V\u0000e\u0000r\u0000s\u0000i\u0000o\u0000n\u0000:\u0000 \u00002\u0000\r\u0000\n\u0000"
+    },
+    {
+      "id": "daemon",
+      "title": "Démon et accès utilisateur",
+      "ok": false,
+      "detail": "Error in the hyper legacy client: client error (Connect)"
+    }
+  ],
+  "installation": "winget install --exact --id Docker.DockerDesktop (WSL2 requis)",
+  "addresses": [
+    "10.1.0.25",
+    "127.0.0.1"
+  ]
+}

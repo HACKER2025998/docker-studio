@@ -1,26 +1,26 @@
 {
   "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
-  "bytes": 7092170,
-  "sha256": "2d208a87b49894eb1e7a3c5008e2d1ca892e7c8df3a66c5157c9f20e55f2fe8e",
-  "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1",
+  "bytes": 7092424,
+  "sha256": "fd84633949492f63e9153db7b3d5740e0b85a212690dce47dd14e879aac68fba",
+  "build_platform": "CI Debian Bookworm / rustc 1.88.0",
   "installed_paths": [
     "usr",
-    "usr/bin",
-    "usr/bin/dockforge",
     "usr/share",
     "usr/share/icons",
     "usr/share/icons/hicolor",
-    "usr/share/icons/hicolor/256x256@2",
-    "usr/share/icons/hicolor/256x256@2/apps",
-    "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
-    "usr/share/icons/hicolor/128x128",
-    "usr/share/icons/hicolor/128x128/apps",
-    "usr/share/icons/hicolor/128x128/apps/dockforge.png",
     "usr/share/icons/hicolor/32x32",
     "usr/share/icons/hicolor/32x32/apps",
     "usr/share/icons/hicolor/32x32/apps/dockforge.png",
+    "usr/share/icons/hicolor/128x128",
+    "usr/share/icons/hicolor/128x128/apps",
+    "usr/share/icons/hicolor/128x128/apps/dockforge.png",
+    "usr/share/icons/hicolor/256x256@2",
+    "usr/share/icons/hicolor/256x256@2/apps",
+    "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
     "usr/share/applications",
-    "usr/share/applications/DockForge Studio.desktop"
+    "usr/share/applications/DockForge Studio.desktop",
+    "usr/bin",
+    "usr/bin/dockforge"
   ],
   "control": "Package: dock-forge-studio\nVersion: 2.0.0-alpha.1\nArchitecture: amd64\nInstalled-Size: 16146\nMaintainer: Kossi Bernard Etonam ADJOGBLE\nPriority: optional\nDepends: libwebkit2gtk-4.1-0, libgtk-3-0, libsecret-1-0, libwebkit2gtk-4.1-0, libgtk-3-0\nDescription: Atelier Docker local et coffre chiffré\n (none)\n"
 }

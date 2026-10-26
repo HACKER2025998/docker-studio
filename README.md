@@ -2,6 +2,8 @@
 
 **Un atelier Docker local pour créer des conteneurs, construire des images et retrouver leurs accès.**
 
+[Dépôt GitHub](https://github.com/HACKER2025998/docker-studio) · [Installateurs et CI validée](https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290)
+
 Créé par **Kossi Bernard Etonam ADJOGBLE** — HACKER2025998 / xhackerip. Code du projet sous [licence MIT](LICENSE). Version de développement : **2.0.0-alpha.1**.
 
 DockForge est une application **desktop Rust 2024 / Tauri 2 / React 19**. Son moteur communique directement avec le démon Docker local par Bollard. Le navigateur sert à développer et consulter l’interface ; il ne remplace pas le moteur natif et ne simule pas des conteneurs actifs.
@@ -503,8 +505,8 @@ Les paquets tiers, images, modèles IA et services conteneurisés conservent leu
 
 ## État de réception
 
-La recette locale valide **11 tests Rust, 2 scénarios Docker réels et 4 tests Playwright**, ainsi que Clippy strict. Le paquet Debian construit sur Bookworm fait **6,76 Mio** ; le démarrage natif a été vérifié dans un profil isolé (286,2 Mio PSS au pic sur huit secondes). Une AppImage est également produite et son diagnostic a été exécuté.
+La recette locale valide **11 tests Rust, 2 scénarios Docker réels et 4 tests Playwright**, ainsi que Clippy strict. Le paquet Debian construit sur Bookworm fait **6,76 Mio** ; le démarrage natif a été vérifié dans un profil isolé (297,4 Mio PSS au pic sur huit secondes). Une AppImage est également produite et son diagnostic a été exécuté.
 
-Les résultats reproductibles et leurs limites sont consignés dans [RECETTE.md](docs/RECETTE.md). Les formats d’installation multi-OS sont préparés ; l’installation et la signature doivent être validées sur chaque cible réelle. Ni la présence d’un fichier CI ni celle d’un template de paquet ne prouve sa publication.
+Les résultats reproductibles et leurs limites sont consignés dans [RECETTE.md](docs/RECETTE.md). La [CI de référence](https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290) est entièrement verte : elle génère `.deb`, AppImage, `.exe`, `.msi` et `.dmg`, et vérifie aussi le mode GUI/CLI Windows. Le dossier local `dist-linux/` rassemble tous ces installateurs malgré son nom historique. L’installation et la signature doivent être validées sur chaque cible réelle. Ni la présence d’un fichier CI ni celle d’un template de paquet ne prouve sa publication.
 
 Les limites connues comprennent la topologie réseau physique non déduisible d’un scan TCP, les catalogues nécessitant des dépendances externes, les registres privés sans assistant d’authentification, la contribution LAN sans reprise d’upload par blocs et les salles non persistantes. Elles sont exposées pour que la réception repose sur le comportement réel, et non sur les promesses du README client.

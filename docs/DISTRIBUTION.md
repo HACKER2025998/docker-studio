@@ -52,3 +52,7 @@ Sur Arch récent, linuxdeploy peut échouer avec son ancien outil strip et les n
 ## Version MSI et console Windows
 
 L’application garde la version sémantique `2.0.0-alpha.1`. `tauri.windows.conf.json` fixe séparément la version MSI numérique `2.0.0.1`, car WiX n’accepte pas le suffixe alphanumérique de la préversion. Le code d’upgrade est stable et doit être conservé lors des évolutions. Le binaire release utilise le sous-système GUI ; le mode `--doctor` préserve une redirection stdout existante et n’attache la console parente que si nécessaire. La CI vérifie le sous-système du PE et le JSON obtenu par redirection.
+
+## Installateurs de la livraison CI
+
+Le dossier local `dist-linux/` contient également le setup Windows x64 NSIS, le MSI Windows x64 et le DMG macOS ARM64, récupérés de la CI verte. Le nom de ce dossier n’implique pas que ces fichiers s’exécutent sous Linux. La version et l’architecture figurent dans chaque nom ; leurs SHA-256 sont dans `SHA256SUMS`. Les builds sont vérifiés ; l’installation interactive et les signatures de publication restent à réceptionner.

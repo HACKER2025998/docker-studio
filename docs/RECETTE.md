@@ -51,13 +51,15 @@ Les résultats de cette livraison sont enregistrés dans `validation.json` à la
 - 4 tests Playwright réussis, avec Axe sur les 7 espaces et le formulaire.
 - Compilation TypeScript/Vite et Clippy tous targets avec `-D warnings` réussis.
 - Binaire natif démarré dans un profil isolé ; diagnostic Docker prêt après installation utilisateur du plugin Buildx officiel manquant.
-- Paquet Debian construit sur Bookworm de 7 092 170 octets (6,76 Mio), binaire, launcher et icônes vérifiés dans l’archive.
-- Pics sur huit secondes : 293 029 Kio PSS (286,2 Mio), 662 892 Kio RSS cumulés (647,4 Mio), trois processus. Ce profil vide de démarrage n’est pas une mesure de charge.
+- Paquet Debian construit sur Bookworm de 7 092 424 octets (6,76 Mio), binaire, launcher et icônes vérifiés dans l’archive.
+- Pics échantillonnés sur huit secondes : 304 588 Kio PSS (297,4 Mio), 699 396 Kio RSS cumulés (683,0 Mio), jusqu’à 9 processus en incluant les enfants de tous les threads. Ce profil vide de démarrage n’est pas une mesure de charge.
 
-Les détails structurés, empreintes et versions figurent dans `validation.json`, `package-linux.json`, `resources-linux.json` et `tooling-linux.json`. Aucune réussite de CI distante ou de plateforme non exécutée n’est revendiquée.
+Les détails structurés, empreintes et versions figurent dans `validation.json`, `package-linux.json`, `resources-linux.json` et `tooling-linux.json`. La CI multi-OS est désormais exécutée et entièrement verte ; sa preuve est conservée dans `ci-result.json`.
 
 Le test volontaire `cargo run --manifest-path src-tauri/Cargo.toml --no-default-features --example keyring-smoke` a également validé le vrai trousseau Secret Service de la session Linux, déjà déverrouillé : création d’une clé temporaire, enregistrement d’une fiche synthétique, fermeture du Store puis réouverture et lecture. L’entrée de trousseau de ce profil temporaire est nettoyée à la fin ; aucune fiche utilisateur n’est lue.
 
 Le build Debian Bookworm a aussi produit une AppImage. Son diagnostic natif est prêt sur le poste de recette avec `APPIMAGE_EXTRACT_AND_RUN=1`. Les premières mesures du build Arch restent conservées sous `reference-arch/` et ne sont pas attribuées au binaire Debian final.
 
 Un paquet Arch `.pkg.tar.zst` a été construit avec makepkg/fakeroot à partir du binaire Debian. Le binaire, le launcher et l’icône sont vérifiés dans l’archive. Aucune installation de paquet n’a été effectuée sur le poste de recette ; le binaire direct reste lancé par `run.sh`.
+
+La CI de référence du commit `9716e1f` génère aussi les installateurs Windows NSIS/MSI et macOS ARM64. Sous Windows, un contrôle du PE confirme le sous-système GUI et le vrai exécutable produit un JSON `--doctor` valide avec stdout redirigé. Docker Desktop n’étant pas prêt sur ce runner, ce test ne certifie pas un provisionnement Docker Windows. Les installateurs restent sans identité commerciale de signature fournie.

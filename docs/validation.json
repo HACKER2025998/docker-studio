@@ -22,18 +22,20 @@
     "clippy_all_targets": "passed with -D warnings",
     "frontend": "TypeScript strict + Vite build passed",
     "comment_annotations": "Rust, TypeScript, JSX, CSS et client LAN ; JavaScript émis comparé par AST",
-    "native_desktop": "Debian-built binary started for eight seconds, empty isolated profile, three processes",
+    "native_desktop": "Binaire CI Debian démarré huit secondes dans un profil isolé ; descendants de tous les threads inclus sans double compte ; pas de sortie prématurée",
     "linux_debian": "built and archive contents inspected",
     "native_keyring_linux": "Real key creation, SQLite persistence, Store reopen and temporary credential cleanup passed",
-    "linux_baseline_build": "Debian Bookworm, Rust 1.88.0, deb and AppImage passed",
+    "linux_baseline_build": "Debian Bookworm / Rust 1.88.0 / deb et AppImage de CI vérifiés sur le poste",
     "appimage_doctor": "passed on host in extract-and-run mode",
-    "arch_linux": "makepkg réussi, binaire/desktop/icône vérifiés ; paquet non installé"
+    "arch_linux": "makepkg réussi, binaire/desktop/icône vérifiés ; paquet non installé",
+    "windows": "NSIS/MSI générés ; sous-système GUI et diagnostic JSON natif vérifiés par CI",
+    "macos": "DMG ARM64 généré sur macos-latest"
   },
   "not_certified": [
-    "Installation Debian sur machine vierge",
-    "Windows et macOS natifs",
-    "Signature/notarisation et publication des registres",
-    "Toutes les variantes/architectures du catalogue",
+    "Installation interactive et mises à jour sur postes cibles Linux/Windows/macOS",
+    "Provisionnement Docker Desktop et trousseau natif Windows/macOS sur postes cibles",
+    "Signatures commerciales/notarisation et publication APT/AUR/winget",
+    "Toutes les variantes et architectures du catalogue",
     "Charge LAN d’une classe entière"
   ],
   "inputs": [
@@ -49,38 +51,38 @@
     }
   ],
   "resources": {
-    "binary_sha256": "77214cd6f028354f01ff0d012b56823ba64968b8beec082315de07184fba178c",
+    "binary_sha256": "d8a3ca49120ce4b556be90d211154993f795047342387747599b359429ba1909",
     "platform": "Linux",
-    "scope": "Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.",
+    "scope": "Pics échantillonnés toutes les 250 ms durant huit secondes de démarrage, écran Doctor, profil vide ; descendants de tous les threads inclus sans double compte. Pas une mesure de charge ni une garantie Windows/macOS.",
     "desktop": {
-      "rss_kib": 662892,
-      "pss_kib": 293029,
-      "processes": 3
+      "rss_kib": 699396,
+      "pss_kib": 304588,
+      "processes": 9
     }
   },
   "package": {
     "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
-    "bytes": 7092170,
-    "sha256": "2d208a87b49894eb1e7a3c5008e2d1ca892e7c8df3a66c5157c9f20e55f2fe8e",
-    "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1",
+    "bytes": 7092424,
+    "sha256": "fd84633949492f63e9153db7b3d5740e0b85a212690dce47dd14e879aac68fba",
+    "build_platform": "CI Debian Bookworm / rustc 1.88.0",
     "installed_paths": [
       "usr",
-      "usr/bin",
-      "usr/bin/dockforge",
       "usr/share",
       "usr/share/icons",
       "usr/share/icons/hicolor",
-      "usr/share/icons/hicolor/256x256@2",
-      "usr/share/icons/hicolor/256x256@2/apps",
-      "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
-      "usr/share/icons/hicolor/128x128",
-      "usr/share/icons/hicolor/128x128/apps",
-      "usr/share/icons/hicolor/128x128/apps/dockforge.png",
       "usr/share/icons/hicolor/32x32",
       "usr/share/icons/hicolor/32x32/apps",
       "usr/share/icons/hicolor/32x32/apps/dockforge.png",
+      "usr/share/icons/hicolor/128x128",
+      "usr/share/icons/hicolor/128x128/apps",
+      "usr/share/icons/hicolor/128x128/apps/dockforge.png",
+      "usr/share/icons/hicolor/256x256@2",
+      "usr/share/icons/hicolor/256x256@2/apps",
+      "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
       "usr/share/applications",
-      "usr/share/applications/DockForge Studio.desktop"
+      "usr/share/applications/DockForge Studio.desktop",
+      "usr/bin",
+      "usr/bin/dockforge"
     ],
     "control": "Package: dock-forge-studio\nVersion: 2.0.0-alpha.1\nArchitecture: amd64\nInstalled-Size: 16146\nMaintainer: Kossi Bernard Etonam ADJOGBLE\nPriority: optional\nDepends: libwebkit2gtk-4.1-0, libgtk-3-0, libsecret-1-0, libwebkit2gtk-4.1-0, libgtk-3-0\nDescription: Atelier Docker local et coffre chiffré\n (none)\n"
   },
@@ -94,10 +96,10 @@
   "appimage": {
     "file": "DockForge Studio_2.0.0-alpha.1_amd64.AppImage",
     "bytes": 102328824,
-    "sha256": "041c91db81a86f50a8c6334e41f3f0dcd1fd9eec9e4f4cad142a6597eace843c",
+    "sha256": "efbe732e0a4a02c26b1166f363787306bea2cd61b871e8e8b21b9df52c0a3ca9",
+    "build_platform": "CI Debian Bookworm / rustc 1.88.0",
     "doctor_ready": true,
-    "execution_mode_tested": "APPIMAGE_EXTRACT_AND_RUN=1",
-    "build_platform": "Debian Bookworm / rustc 1.88.0 / Node v24.22.1"
+    "execution_mode_tested": "APPIMAGE_EXTRACT_AND_RUN=1"
   },
   "release_build_toolchain": [
     "rustc 1.88.0 (6b00bc388 2025-06-23)",
@@ -106,8 +108,8 @@
   "delivery_date_utc": "2026-10-26",
   "arch_package": {
     "file": "dockforge-studio-bin-2.0.0.alpha.1-1-x86_64.pkg.tar.zst",
-    "bytes": 6718017,
-    "sha256": "d28b49ba1097804af190e2ba95e4c4da5517a0604db2a03466262d61ab35c910",
+    "bytes": 6718025,
+    "sha256": "5896b3b35ac378fade3225f06538a3c2b5701cbf8f33bfe4e9f3d109b9cb7e0d",
     "installed_paths": [
       ".BUILDINFO",
       ".MTREE",
@@ -127,6 +129,284 @@
       "usr/share/licenses/dockforge-studio-bin/",
       "usr/share/licenses/dockforge-studio-bin/LICENSE"
     ],
-    "build": "makepkg / fakeroot, sans installation sur le poste"
-  }
+    "build": "makepkg/fakeroot à partir du binaire CI Debian ; sans installation sur le poste"
+  },
+  "ci": {
+    "conclusion": "success",
+    "headSha": "9716e1f134b46dadf79a8caeb3389a2627a3d69e",
+    "jobs": [
+      {
+        "completedAt": "2026-10-26T00:41:21Z",
+        "conclusion": "success",
+        "name": "quality",
+        "startedAt": "2026-10-26T00:36:43Z",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@stable"
+          },
+          {
+            "conclusion": "success",
+            "name": "Dépendances desktop"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run build"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run check:comments"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --locked"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --locked -- -D warnings"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --locked -- --ignored"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npx playwright install --with-deps chromium"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm test"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job"
+          }
+        ],
+        "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185409"
+      },
+      {
+        "completedAt": "2026-10-26T00:42:55Z",
+        "conclusion": "success",
+        "name": "desktop (windows-latest, nsis,msi)",
+        "startedAt": "2026-10-26T00:36:43Z",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@stable"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Paquets Linux sur la base Debian Bookworm"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run tauri -- build --bundles nsis,msi"
+          },
+          {
+            "conclusion": "success",
+            "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job"
+          }
+        ],
+        "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185668"
+      },
+      {
+        "completedAt": "2026-10-26T00:45:09Z",
+        "conclusion": "success",
+        "name": "desktop (ubuntu-24.04, deb,appimage)",
+        "startedAt": "2026-10-26T00:36:43Z",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run dtolnay/rust-toolchain@stable"
+          },
+          {
+            "conclusion": "success",
+            "name": "Paquets Linux sur la base Debian Bookworm"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run npm ci"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Run npm run tauri -- build --bundles deb,appimage"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job"
+          }
+        ],
+        "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185675"
+      },
+      {
+        "completedAt": "2026-10-26T00:43:00Z",
+        "conclusion": "success",
+        "name": "desktop (macos-latest, dmg)",
+        "startedAt": "2026-10-26T00:36:43Z",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run dtolnay/rust-toolchain@stable"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Paquets Linux sur la base Debian Bookworm"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm ci"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run npm run tauri -- build --bundles dmg"
+          },
+          {
+            "conclusion": "skipped",
+            "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job"
+          }
+        ],
+        "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185677"
+      }
+    ],
+    "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290"
+  },
+  "installers": [
+    {
+      "file": "DockForge Studio_2.0.0-alpha.1_aarch64.dmg",
+      "bytes": 5291114,
+      "sha256": "051eedbbd96d241f6e34b606d0cff1dacd41d394cd908723b8ce422a93978930"
+    },
+    {
+      "file": "DockForge Studio_2.0.0-alpha.1_amd64.AppImage",
+      "bytes": 102328824,
+      "sha256": "efbe732e0a4a02c26b1166f363787306bea2cd61b871e8e8b21b9df52c0a3ca9"
+    },
+    {
+      "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
+      "bytes": 7092424,
+      "sha256": "fd84633949492f63e9153db7b3d5740e0b85a212690dce47dd14e879aac68fba"
+    },
+    {
+      "file": "DockForge Studio_2.0.0-alpha.1_x64-setup.exe",
+      "bytes": 4139345,
+      "sha256": "2f35629098559db7cc40e3808307c36a59287ed930e5cfd5a52cc693f4932fc9"
+    },
+    {
+      "file": "DockForge Studio_2.0.0-alpha.1_x64_en-US.msi",
+      "bytes": 5771264,
+      "sha256": "25dd05402615172947dd3d758a270db29a7e854ddece1e88b65689e9acc6276f"
+    }
+  ]
 }

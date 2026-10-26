@@ -1,0 +1,251 @@
+{
+  "conclusion": "success",
+  "headSha": "9716e1f134b46dadf79a8caeb3389a2627a3d69e",
+  "jobs": [
+    {
+      "completedAt": "2026-10-26T00:41:21Z",
+      "conclusion": "success",
+      "name": "quality",
+      "startedAt": "2026-10-26T00:36:43Z",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run dtolnay/rust-toolchain@stable"
+        },
+        {
+          "conclusion": "success",
+          "name": "Dépendances desktop"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm ci"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm run build"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm run check:comments"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --locked"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --locked -- -D warnings"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run cargo test --manifest-path src-tauri/Cargo.toml --no-default-features --locked -- --ignored"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npx playwright install --with-deps chromium"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm test"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job"
+        }
+      ],
+      "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185409"
+    },
+    {
+      "completedAt": "2026-10-26T00:42:55Z",
+      "conclusion": "success",
+      "name": "desktop (windows-latest, nsis,msi)",
+      "startedAt": "2026-10-26T00:36:43Z",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run dtolnay/rust-toolchain@stable"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Paquets Linux sur la base Debian Bookworm"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm ci"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm run tauri -- build --bundles nsis,msi"
+        },
+        {
+          "conclusion": "success",
+          "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job"
+        }
+      ],
+      "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185668"
+    },
+    {
+      "completedAt": "2026-10-26T00:45:09Z",
+      "conclusion": "success",
+      "name": "desktop (ubuntu-24.04, deb,appimage)",
+      "startedAt": "2026-10-26T00:36:43Z",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Run dtolnay/rust-toolchain@stable"
+        },
+        {
+          "conclusion": "success",
+          "name": "Paquets Linux sur la base Debian Bookworm"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Run npm ci"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Run npm run tauri -- build --bundles deb,appimage"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job"
+        }
+      ],
+      "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185675"
+    },
+    {
+      "completedAt": "2026-10-26T00:43:00Z",
+      "conclusion": "success",
+      "name": "desktop (macos-latest, dmg)",
+      "startedAt": "2026-10-26T00:36:43Z",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run dtolnay/rust-toolchain@stable"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Paquets Linux sur la base Debian Bookworm"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm ci"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run npm run tauri -- build --bundles dmg"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "Exécutable Windows GUI et diagnostic JSON redirigé"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/upload-artifact@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-node@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job"
+        }
+      ],
+      "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290/job/121340185677"
+    }
+  ],
+  "url": "https://github.com/HACKER2025998/docker-studio/actions/runs/40250192290"
+}
