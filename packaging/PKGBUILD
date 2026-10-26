@@ -1,0 +1,15 @@
+# Modèle à renseigner avant publication ; aucune adresse de release fictive n’est fournie.
+pkgname=dockforge-studio-bin
+pkgver=2.0.0.alpha.1
+pkgrel=1
+pkgdesc='Atelier Docker local et coffre chiffré'
+arch=('x86_64')
+license=('MIT')
+depends=('webkit2gtk-4.1' 'gtk3' 'libsecret' 'openssl')
+# Remplacer ces valeurs par la release immuable et son SHA-256 vérifié.
+source=("dockforge.tar.gz::${DOCKFORGE_RELEASE_URL:?Définir une URL de release publiée}")
+sha256sums=("${DOCKFORGE_RELEASE_SHA256:?Définir le SHA-256 de la release}")
+package() {
+  install -Dm755 "$srcdir/dockforge" "$pkgdir/usr/bin/dockforge"
+  install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

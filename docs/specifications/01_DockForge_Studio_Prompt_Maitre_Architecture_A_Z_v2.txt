@@ -1,0 +1,129 @@
+DOCUMENT 01 // PROMPT MAÎTRE D'INGÉNIERIE & SPÉCIFICATION ARCHITECTURALE A-Z
+DOCKFORGE STUDIO (v2.0)Prompt Maître A-Z : Provisioning Docker à la Demande, Constructeur d'Images & Vault d'Identifiants JSON
+Spécification chirurgicale ultra-précise destinée à l'Agent Codeur (et aux équipes d'ingénierie) pour construire l'application Desktop native (.exe, .deb, .bin, yay/apt) permettant de vérifier l'OS, créer n'importe quelle image ou conteneur à la demande via formulaires intelligents, diagnostiquer les logs et exporter les accès en JSON.
+Paramètre Système
+Spécification Technique Stricte (Zéro Tolérance d'Ambiguïté)
+Nom Officiel du Projet
+DockForge Studio (Binaire CLI & Desktop : dockforge)
+Architecte & Auteur Principal
+Kossi Bernard Etonam ADJOGBLE (HACKER2025998 / xhackerip)
+Nature de l'Application
+Application Desktop Native 100% Locale (Impossible en Web pur car accès direct au Socket OS, IPC, Réseau & Élévation Privilèges)
+Cibles de Distribution
+Windows 10/11 (.exe NSIS / .msi), Debian/Ubuntu/Kali (.deb / apt), Arch Linux (yay / AUR), Linux Universel (.bin / AppImage)
+Stack Backend (Système)
+Rust 2024 + Tauri v2 + Bollard (Client API Docker natif Rust) + Tokio + SQLite3 (Chiffrement SQLCipher / AES-256-GCM)
+Stack Frontend (UI/UX)
+React 19 + TypeScript Strict + Tailwind CSS + Framer Motion + Lucide Icons (Thème Clair « Daylight Studio »)
+Modules Intégrés
+1. OS & Docker Doctor • 2. One-Click Container Forge • 3. No-Dockerfile Image Builder • 4. JSON Credentials Vault • 5. Command Vault, NetMap & ClassShare LAN
+
+DIRECTIVE CRITIQUE POUR L'AGENT CODEUR IA (CURSOR / CLAUDE CODE / WINDSURF / COPILOT)TU ES L'AGENT EXÉCUTANT. Ce document est ta source de vérité absolue.1. Ne prends AUCUNE liberté qui contredise cette architecture. N'invente pas de dépendances Web/Cloud : l'application communique directement en Rust avec `/var/run/docker.sock` (Linux) et `//./pipe/docker_engine` (Windows) via la crate `bollard`.2. Respecte scrupuleusement chaque étape du workflow : Check OS au démarrage -> Demande de droits système -> Formulaire dynamique de création -> Diagnostic temps réel des logs avec traduction des erreurs -> Génération et téléchargement du fichier JSON d'identifiants -> Persistance dans le Coffre-Fort tant que le conteneur existe.
+
+
+1. Pourquoi une Application Desktop Native (.exe, .deb, .bin) et Non une App Web ?
+L'Agent Codeur doit comprendre pourquoi DockForge Studio est obligatoirement compilé en binaire natif Desktop (Tauri v2 + Rust) et ne peut pas être un simple site web :
+Accès Direct au Noyau et au Démon Docker : Un navigateur web est enfermé dans une sandbox (CORS, impossibilité de lire `/var/run/docker.sock` ou `//./pipe/docker_engine`, impossibilité de vérifier si `systemd`, `WSL2` ou `containerd` sont installés).
+Élévation de Privilèges Native (Polkit / UAC) : Pour démarrer un service Docker éteint (`systemctl start docker`), ajouter l'utilisateur au groupe `docker`, ou allouer une adresse IP sur un pont réseau (`macvlan`/`bridge`), l'application doit invoquer `pkexec` (Linux Polkit) ou l'invite Administrateur UAC (Windows).
+Vérification des Ports Locaux avant Création : Avant de lancer un conteneur PostgreSQL sur `5432` ou MySQL sur `3306`, le binaire Rust effectue un `TcpListener::bind` local pour vérifier en 0.2ms si le port est libre ou déjà occupé par un processus hôte.
+2. Module 1 : « OS & Docker Doctor » (Check Automatique à l'Ouverture + Gestion des Droits)
+Dès que l'utilisateur double-clique sur l'icône de DockForge Studio (sur Windows ou Linux), AVANT même d'afficher le tableau de bord, l'application exécute la machine à états `SystemPreFlightCheck` en Rust.
+2.1. Algorithme Exact du Check de Démarrage (Step-by-Step)
+Étape de Vérification
+Commande / Appel Système Rust Exécuté
+Si OK (Badge Vert #059669)
+Si KO : Écran d'Alerte Clair + Action Proposée
+1. Détection OS & Architecture
+std::env::consts::OS + lecture `/etc/os-release` ou Registre Windows
+Affiche : « Arch Linux x86_64 (Kernel 6.x) » ou « Windows 11 Pro Build 22631 »
+N/A (Toujours détecté). Adapte automatiquement les commandes d'installation à l'OS précis.
+2. Présence Binaire Docker & Compose
+Vérifie `which docker`, `docker --version`, `docker compose version`
+Affiche : « Docker Engine v27.x + Compose v2.x installés »
+Affiche la carte : « Composants Docker manquants » avec bouton [📥 Télécharger / Installer Maintenant] et bouton [🔄 Rafraîchir l'application].
+3. État du Démon (Service Actif)
+Ping HTTP sur `/var/run/docker.sock` (`/_ping`) ou Named Pipe Windows
+Affiche : « Démon Docker Actif & Répondant (Latence < 1ms) »
+Sur Linux : propose [⚡ Démarrer docker.service (Polkit)]. Sur Windows : propose [🚀 Lancer Docker Desktop / WSL2] puis [🔄 Rafraîchir].
+4. Vérification des Droits Utilisateur
+Vérifie si l'UID courant peut écrire sur le socket sans `Permission Denied`
+Affiche : « Droits Utilisateur Validés (Groupe docker actif) »
+Affiche : « Droits insuffisants sur le socket Docker ». Bouton [🔐 Accorder les droits (usermod -aG docker $USER)] via boîte de dialogue mot de passe système.
+
+2.2. Écran « Composants Manquants » et Bouton [🔄 Rafraîchir l'Application]
+Si Docker, Buildx ou WSL2 (sur Windows) ne sont pas installés, l'interface ne bloque pas l'utilisateur sur une erreur technique obscure. Elle affiche un écran lumineux (« System Readiness Assistant ») contenant :
+Instructions exactes adaptées à l'OS détecté : Sur Arch Linux : `sudo pacman -S docker docker-buildx docker-compose`. Sur Debian/Ubuntu : script officiel `apt`. Sur Windows : lien direct vers l'installateur officiel + bouton d'exécution automatique via `winget install Docker.DockerDesktop`.
+Bouton Primaire [🔄 J'ai installé les composants — Rafraîchir l'application] : Situé au centre en Bleu Cobalt (`#2563EB`). Au clic, il relance la sonde `SystemPreFlightCheck` avec une animation de rotation fluide et, dès que Docker est détecté, ouvre instantanément l'espace de travail avec une notification verte : « Environnement Docker prêt ! ».
+3. Module 2 : « Container Forge » — Création de Conteneurs à la Demande
+Une fois le check initial validé, l'utilisateur accède au catalogue visuel pour créer n'importe quel conteneur en quelques secondes sans jamais taper de longue ligne de commande ni chercher les variables d'environnement sur Internet.
+3.1. Catalogue Exhaustif des Conteneurs Pré-Modélisés (Templates Intelligents)
+Chaque carte du catalogue embarque en local (100% hors-ligne dans le binaire) le schéma exact des variables requises, les ports par défaut, le chemin interne des volumes de données et la sonde de santé (`Healthcheck`) :
+Catégorie
+Conteneurs Disponibles en 1 Clic
+Champs Dynamiques Demandés à l'Utilisateur dans le Formulaire
+🗄️ Bases de Données SQL & NoSQL
+PostgreSQL (14/15/16/17), MySQL (8.0/8.4), MariaDB, Oracle 23ai Free, MS SQL Server 2022, MongoDB, Redis, ClickHouse
+Nom du conteneur, Version, Username, Password (avec bouton Générer Fort), Nom de la BD initiale, Mode Réseau (Localhost / IP LAN / Custom Bridge), Port Hôte, Persistance Volume.
+🌐 Serveurs Web, Proxy & API
+Nginx, Apache HTTPD, Traefik, Caddy, Nginx Proxy Manager, HAProxy, PHP-FPM
+Nom du conteneur, Port HTTP/HTTPS, Dossier local du code source à monter (Bind Mount Picker), Activation SSL auto, Réseau cible.
+🏢 ERP, ITSM & Outils Entreprise
+GLPI (avec MariaDB lié), Nextcloud, Odoo, GitLab CE, Gitea,Keycloak, WordPress
+Nom de l'instance, Port Web, Identifiants Admin initiaux, Liaison automatique en 1 clic avec un conteneur Base de Données existant.
+🛡️ Sécurité, Monitoring & Réseau
+Wazuh, Zabbix, Prometheus, Grafana, SonarQube, Pi-hole, WireGuard VPN
+Nom du conteneur, Mot de passe Admin Dashboard, Interface réseau à écouter, Capacités Linux (`NET_ADMIN` auto-coché si requis).
+🤖 IA, LLMs & Data Science
+Ollama (LLMs locaux), Open WebUI, JupyterLab DataScience, Qdrant / Milvus (Vector DB)
+Activation passe-plat GPU/CPU, Dossier de stockage des modèles, Port API local, Token d'authentification.
+
+3.2. Parcours Détaillé : Exemple de Création d'un Conteneur PostgreSQL ou MySQL
+Lorsque l'utilisateur clique sur la carte **[PostgreSQL]** (ou n'importe quel autre service), un tiroir modal lumineux en 3 étapes rapides s'ouvre :
+Étape 1 — Identité & Identifiants : L'utilisateur saisit le Nom du conteneur (ex: `pg-campus-db`), choisit la version (`postgres:16-alpine`), saisit le **Nom d'utilisateur** (`bernard_admin`), le **Mot de passe** (champ avec icône œil + bouton `[🎲 Générer 24 caractères]`), et le **Nom de la base par défaut** (`campus_prod`).
+Étape 2 — Configuration Réseau (Local vs IP Spécifique) : L'utilisateur choisit comment exposer son conteneur grâce à 3 boutons radio visuels :  • Option A [🔒 Local Uniquement (127.0.0.1)] : Le conteneur n'est accessible que depuis ce PC (`127.0.0.1:5432:5432`).  • Option B [📡 Réseau Local / IP Spécifique (LAN)] : L'application liste les adresses IP de la machine (ex: `192.168.1.45` ou `0.0.0.0`) ou permet d'attribuer une **IP dédiée statique** sur un sous-réseau Docker (`172.28.0.10`).  • Vérificateur de Port en Temps Réel : Si le port `5432` est déjà utilisé sur le PC, un badge ambre s'affiche immédiatement (« ⚠️ Port 5432 occupé par un autre service ») et propose en 1 clic le prochain port libre (`5433`).
+Étape 3 — Stockage & Persistance : Bouton radio `[💾 Volume Docker Géré (Recommandé)]` ou `[📂 Dossier Local sur mon PC]` pour ne jamais perdre les données si le conteneur est redémarré.
+3.3. Exécution, Rapport des Logs en Temps Réel & Diagnostic d'Erreurs Clair
+Dès que l'utilisateur clique sur **[🚀 Créer & Lancer le Conteneur]**, l'écran passe sur le **Console & Diagnostic Reporter** :
+1. Téléchargement & Création : Jauge de progression couche par couche (Layer Pull Progress) via le flux streamé de l'API Docker, suivie du démarrage du conteneur et de la vérification que la base de données accepte réellement les connexions (`pg_isready` ou `mysqladmin ping`).
+2. Si Tout S'est Bien Passé (Rapport de Succès) : Bannière Émeraude `#059669` : « ✅ Conteneur `pg-campus-db` créé, démarré et prêt à recevoir des connexions en 3.4 secondes ! » + affichage du résumé des logs d'initialisation.
+3. Si une Erreur Survient (Traducteur d'Erreurs Intelligent) : Si le conteneur échoue ou s'arrête (`Exit Code != 0`), le moteur Rust `ContainerLogDoctor` analyse les 50 dernières lignes de `stderr` et affiche une explication humaine en français avec un bouton de réparation automatique :
+Erreur Brute Docker / Conteneur
+Traduction Claire Affichée à l'Utilisateur
+Bouton de Résolution en 1 Clic
+Bind for 0.0.0.0:5432 failed: port is already allocated
+Le port 5432 est déjà utilisé par un autre programme ou conteneur sur votre ordinateur.
+[🔧 Basculer sur le port 5433 et Relancer]
+Conflict. The container name "/pg-db" is already in use
+Un conteneur portant le nom « pg-db » existe déjà sur votre machine.
+[✏️ Renommer en pg-db-2] ou [🗑️ Remplacer l'ancien]
+initdb: error: directory "/var/lib/postgresql/data" exists but is not empty
+Le dossier de données sélectionné contient déjà des fichiers incompatibles avec cette version de PostgreSQL.
+[🧹 Créer un nouveau volume propre et Relancer]
+no matching manifest for linux/arm64/v8 in the manifest list entries
+Cette image ancienne n'est pas compatible avec l'architecture de votre processeur.
+[⚡ Activer l'émulation multi-arch --platform linux/amd64]
+
+4. Module 3 : Export JSON des Identifiants & Coffre-Fort Persistant (Credentials Vault)
+C'est l'une des fonctionnalités phares demandées : dès que le conteneur est créé avec succès, l'utilisateur reçoit toutes les informations de connexion dans une carte récapitulative propre, peut les télécharger en `.json`, et peut revenir les consulter à tout moment tant que le conteneur n'a pas été supprimé.
+4.1. Structure Exacte du Fichier JSON Téléchargeable (`<nom_conteneur>_credentials.json`)
+Sur l'écran de succès (et à tout moment dans la fiche du conteneur), l'utilisateur dispose de 3 boutons d'export : **[📥 Télécharger les Identifiants (.json)]**, **[📋 Copier l'URI de Connexion]**, et **[📄 Copier en format .env]**. Le fichier JSON généré suit ce standard universel :
+EXEMPLE DE FICHIER JSON GÉNÉRÉ AUTOMATIQUEMENT PAR DOCKFORGE STUDIO{  "generated_by": "DockForge Studio v2.0",  "created_at": "2026-10-25T22:55:00Z",  "container": {    "id": "a8f9d2c4e1b7...",    "name": "pg-campus-db",    "image": "postgres:16-alpine",    "status": "running"  },  "network": {    "mode": "local_and_lan",    "bind_ip": "192.168.1.45",    "localhost": "127.0.0.1",    "internal_container_ip": "172.17.0.2",    "host_port": 5432,    "container_port": 5432  },  "credentials": {    "engine": "postgresql",    "username": "bernard_admin",    "password": "Xp9#mK2$vL8@qR5!nZ4",    "database": "campus_prod"  },  "connection_strings": {    "uri_standard": "postgresql://bernard_admin:Xp9%23mK2%24vL8%40qR5%21nZ4@192.168.1.45:5432/campus_prod",    "jdbc_java": "jdbc:postgresql://192.168.1.45:5432/campus_prod?user=bernard_admin&password=...",    "dotnet_ef": "Host=192.168.1.45;Port=5432;Database=campus_prod;Username=bernard_admin;Password=...",    "laravel_env": "DB_CONNECTION=pgsql\nDB_HOST=192.168.1.45\nDB_PORT=5432\nDB_DATABASE=campus_prod\nDB_USERNAME=bernard_admin\nDB_PASSWORD=...",    "cli_command": "PGPASSWORD='Xp9#mK2$vL8@qR5!nZ4' psql -h 192.168.1.45 -p 5432 -U bernard_admin -d campus_prod"  }}
+
+4.2. Cycle de Vie et Consultation Permanente dans l'Application
+Stockage Chiffré Local (AES-256-GCM) : Dès la création du conteneur, cette fiche JSON est enregistrée dans la table SQLite locale `managed_containers_vault`.
+Consultation à Volonté : Si l'utilisateur ferme l'application, éteint son PC et revient 2 semaines plus tard, il clique sur son conteneur dans la section **« 📦 Mes Conteneurs & Accès »** : il retrouve immédiatement le mot de passe (masqué par défaut avec bouton `[👁️ Afficher]`), l'IP, le port, les logs, et le bouton **[📥 Re-télécharger le JSON]**.
+Synchronisation avec la Suppression : Tant que le conteneur existe (même s'il est arrêté `Stopped/Exited`), ses identifiants restent accessibles. Si l'utilisateur supprime définitivement le conteneur, l'application lui demande : « Voulez-vous également supprimer la fiche d'identifiants ou l'archiver dans l'historique ? ».
+5. Module 4 : « Image Forge » — Créateur d'Images sur Mesure & Lancement Direct
+L'utilisateur veut pouvoir créer ses propres images personnalisées ultra-rapidement sans écrire manuellement un `Dockerfile` complexe, puis créer des conteneurs basés sur ces images en 1 clic.
+5.1. Le Constructeur Visuel d'Images (Visual Image Studio)
+Dans l'onglet **« 🏗️ Créer une Image (Image Forge) »**, l'utilisateur construit une image en 4 clics :
+1. Choix de la Base ou de la Stack : Sélectionne un OS ou un environnement de base : `Ubuntu 24.04`, `Debian 12 Slim`, `Alpine 3.20`, `Arch Linux`, `Python 3.12`, `Node.js 22`, `PHP 8.3 + Apache/Nginx`, `Rust`, `.NET 8 SDK`, `Java 21 OpenJDK`.
+2. Cases à Cocher des Outils & Extensions : Une grille visuelle permet de cocher les paquets à pré-installer dans l'image (ex: `curl`, `git`, `vim`, `nmap`, `iproute2`, `ffmpeg`, `pdo_pgsql`, `pdo_mysql`, `redis`, `supervisor`).
+3. Dossier Projet & Port par Défaut : Optionnellement, l'utilisateur sélectionne un dossier de son PC à intégrer dans `/app`, indique la commande de démarrage (ex: `npm run start` ou `python main.py`) et le port exposé.
+4. Nom & Tag de l'Image : Ex: `mon-api-laravel:v1.0` ou `kali-audit-custom:latest`.
+5. Compilation Temps Réel & Passage Direct au Conteneur : En cliquant sur **[🔨 Construire l'Image]**, le backend Rust génère le `Dockerfile` optimisé (multi-stage, cache APT/Pacman nettoyé), lance le build via BuildKit, affiche les logs étape par étape, et dès que l'image est prête, affiche un gros bouton Émeraude : **[🚀 Créer un Conteneur basé sur cette Image maintenant]** qui pré-remplit automatiquement le formulaire du Module 2 !
+6. Architecture de l'Interface Daylight Studio & Schéma SQLite Complet
+L'interface conserve l'esthétique **Daylight Alabaster** (100% claire, moderne, non-sombre) et organise tous les modules dans la barre latérale gauche :
+WIREFRAME COMPLET DE DOCKFORGE STUDIO (LAYOUT 4 ZONES)+------------------------------------------------------------------------------------------------------+| [🐳 DockForge Studio v2]  [🟢 OS: Arch Linux | Docker v27.3 Actif]   [🔍 Ctrl+K]  [+ Nouveau]  [🔄]  | <- TOP BAR+------------------------+---------------------------------------------------+-------------------------+| NAVIGATION PRINCIPALE  | ESPACE CENTRAL : CONTAINER & IMAGE FORGE          | TIROIR D'INSPECTION &   ||                        |                                                   | COFFRE D'IDENTIFIANTS   || 🩺 1. OS & Docker Check| [Catégories : Toutes | Bases SQL | Web | IA | OS] |                         || 🚀 2. Créer Conteneur  |                                                   | 📦 Conteneur Actif :    || 🏗️ 3. Créer une Image  | +-----------------------------------------------+ |    pg-campus-db         || 🔐 4. Mes Conteneurs & | | 🐘 PostgreSQL               [Créer en 1 Clic] | | 🟢 Statut : RUNNING     ||       Identifiants JSON| | Base relationnelle • Port 5432 • Volume Auto  | | 🌐 IP : 192.168.1.45    || ⚡ 5. Command Vault    | +-----------------------------------------------+ | 🔌 Port : 5432          || 🗺️ 6. NetMap Studio    | +-----------------------------------------------+ | 👤 User : bernard_admin || 📂 7. ClassShare LAN   | | 🐬 MySQL / MariaDB          [Créer en 1 Clic] | | 🔑 Pass : •••••••••• 👁️ ||                        | | Base relationnelle • Port 3306 • Phpmyadmin   | |                         || MES IMAGES CUSTOM (4)  | +-----------------------------------------------+ | [📥 Télécharger .JSON]  || • api-laravel:v1 [Run] | +-----------------------------------------------+ | [📋 Copier URI Connexion]|| • arch-secops:v2 [Run] | | 🏗️ Créer à partir de mes Images Personnelles  | | [📜 Voir Logs & Rapport]|+------------------------+---------------------------------------------------+-------------------------+
+
+SCHÉMA SQLITE ADDITIONNEL POUR LES CONTENEURS, IMAGES & IDENTIFIANTS JSONCREATE TABLE IF NOT EXISTS managed_containers_vault (    container_id TEXT PRIMARY KEY,    container_name TEXT NOT NULL UNIQUE,    image_tag TEXT NOT NULL,    service_type TEXT NOT NULL,              -- 'postgres', 'mysql', 'redis', 'custom'    network_mode TEXT NOT NULL,              -- 'local_only', 'lan_ip', 'custom_bridge'    bind_ip TEXT NOT NULL,                   -- '127.0.0.1' ou '192.168.1.45'    host_port INTEGER NOT NULL,    container_port INTEGER NOT NULL,    username TEXT,    password_encrypted TEXT,                 -- Chiffré AES-256-GCM    database_name TEXT,    credentials_json_payload TEXT NOT NULL,  -- Le JSON complet prêt à être téléchargé    creation_logs_report TEXT NOT NULL,      -- Rapport complet de création    status TEXT NOT NULL,                    -- 'running', 'stopped', 'error'    created_at INTEGER NOT NULL);CREATE TABLE IF NOT EXISTS custom_built_images (    image_id TEXT PRIMARY KEY,    image_name_tag TEXT NOT NULL UNIQUE,    base_image TEXT NOT NULL,    installed_packages_json TEXT NOT NULL,    generated_dockerfile TEXT NOT NULL,    default_port INTEGER,    build_logs TEXT NOT NULL,    created_at INTEGER NOT NULL);

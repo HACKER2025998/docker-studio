@@ -1,0 +1,968 @@
+[
+  {
+    "id": "postgres",
+    "name": "PostgreSQL",
+    "category": "Bases SQL",
+    "description": "Relationnel fiable pour vos applications et vos ateliers SQL.",
+    "image": "postgres:17-alpine",
+    "versions": [
+      "postgres:14-alpine",
+      "postgres:15-alpine",
+      "postgres:16-alpine",
+      "postgres:17-alpine"
+    ],
+    "port": 5432,
+    "volume": "/var/lib/postgresql/data",
+    "fields": [
+      {
+        "key": "POSTGRES_USER",
+        "label": "POSTGRES_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "POSTGRES_PASSWORD",
+        "label": "POSTGRES_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "POSTGRES_DB",
+        "label": "POSTGRES_DB",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      }
+    ],
+    "health": [
+      "CMD-SHELL",
+      "pg_isready -h 127.0.0.1 -U \"$POSTGRES_USER\" -d \"$POSTGRES_DB\""
+    ],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "mysql",
+    "name": "MySQL",
+    "category": "Bases SQL",
+    "description": "Le classique du Web, avec une base et un utilisateur dédiés.",
+    "image": "mysql:8.4",
+    "versions": [
+      "mysql:8.0",
+      "mysql:8.4"
+    ],
+    "port": 3306,
+    "volume": "/var/lib/mysql",
+    "fields": [
+      {
+        "key": "MYSQL_ROOT_PASSWORD",
+        "label": "MYSQL_ROOT_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MYSQL_USER",
+        "label": "MYSQL_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "MYSQL_PASSWORD",
+        "label": "MYSQL_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MYSQL_DATABASE",
+        "label": "MYSQL_DATABASE",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      }
+    ],
+    "health": [
+      "CMD-SHELL",
+      "MYSQL_PWD=\"$MYSQL_ROOT_PASSWORD\" mysqladmin ping -h 127.0.0.1 --silent"
+    ],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "mariadb",
+    "name": "MariaDB",
+    "category": "Bases SQL",
+    "description": "Une base SQL ouverte, prête pour vos outils métier.",
+    "image": "mariadb:11.4",
+    "versions": [
+      "mariadb:11.4"
+    ],
+    "port": 3306,
+    "volume": "/var/lib/mysql",
+    "fields": [
+      {
+        "key": "MARIADB_ROOT_PASSWORD",
+        "label": "MARIADB_ROOT_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MARIADB_USER",
+        "label": "MARIADB_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "MARIADB_PASSWORD",
+        "label": "MARIADB_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MARIADB_DATABASE",
+        "label": "MARIADB_DATABASE",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      }
+    ],
+    "health": [
+      "CMD",
+      "healthcheck.sh",
+      "--connect",
+      "--innodb_initialized"
+    ],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "oracle",
+    "name": "Oracle Free",
+    "category": "Bases SQL",
+    "description": "Un environnement Oracle Free pour apprendre et prototyper.",
+    "image": "gvenzl/oracle-free:23-slim",
+    "versions": [
+      "gvenzl/oracle-free:23-slim"
+    ],
+    "port": 1521,
+    "volume": "/opt/oracle/oradata",
+    "fields": [
+      {
+        "key": "ORACLE_PASSWORD",
+        "label": "ORACLE_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "mssql",
+    "name": "SQL Server",
+    "category": "Bases SQL",
+    "description": "Vos projets SQL Server, dans un environnement isolé.",
+    "image": "mcr.microsoft.com/mssql/server:2022-latest",
+    "versions": [
+      "mcr.microsoft.com/mssql/server:2022-latest"
+    ],
+    "port": 1433,
+    "volume": "/var/opt/mssql",
+    "fields": [
+      {
+        "key": "ACCEPT_EULA",
+        "label": "ACCEPT_EULA",
+        "secret": false,
+        "default": "Y",
+        "required": true
+      },
+      {
+        "key": "MSSQL_SA_PASSWORD",
+        "label": "MSSQL_SA_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Nécessite l’acceptation explicite de la licence Microsoft et un mot de passe complexe. Image généralement x86_64.",
+    "capabilities": []
+  },
+  {
+    "id": "mongo",
+    "name": "MongoDB",
+    "category": "Bases NoSQL",
+    "description": "Documents JSON et collections pour vos données souples.",
+    "image": "mongo:8",
+    "versions": [
+      "mongo:8"
+    ],
+    "port": 27017,
+    "volume": "/data/db",
+    "fields": [
+      {
+        "key": "MONGO_INITDB_ROOT_USERNAME",
+        "label": "MONGO_INITDB_ROOT_USERNAME",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "MONGO_INITDB_ROOT_PASSWORD",
+        "label": "MONGO_INITDB_ROOT_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "redis",
+    "name": "Redis",
+    "category": "Bases NoSQL",
+    "description": "Cache et structures en mémoire, avec mot de passe.",
+    "image": "redis:7-alpine",
+    "versions": [
+      "redis:7-alpine"
+    ],
+    "port": 6379,
+    "volume": "/data",
+    "fields": [
+      {
+        "key": "REDIS_PASSWORD",
+        "label": "REDIS_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [
+      "CMD-SHELL",
+      "REDISCLI_AUTH=\"$REDIS_PASSWORD\" redis-cli ping"
+    ],
+    "notice": "Le mot de passe est appliqué par la commande de démarrage générée. Si vous remplacez cette commande, vous devez conserver une authentification Redis adaptée.",
+    "capabilities": []
+  },
+  {
+    "id": "clickhouse",
+    "name": "ClickHouse",
+    "category": "Bases NoSQL",
+    "description": "Explorez vos données analytiques en colonnes.",
+    "image": "clickhouse/clickhouse-server:25.8",
+    "versions": [
+      "clickhouse/clickhouse-server:25.8"
+    ],
+    "port": 8123,
+    "volume": "/var/lib/clickhouse",
+    "fields": [
+      {
+        "key": "CLICKHOUSE_USER",
+        "label": "CLICKHOUSE_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "CLICKHOUSE_PASSWORD",
+        "label": "CLICKHOUSE_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "CLICKHOUSE_DB",
+        "label": "CLICKHOUSE_DB",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "nginx",
+    "name": "Nginx",
+    "category": "Web & proxy",
+    "description": "Un serveur léger pour vos fichiers et reverse proxies.",
+    "image": "nginx:stable-alpine",
+    "versions": [
+      "nginx:stable-alpine"
+    ],
+    "port": 80,
+    "volume": "/usr/share/nginx/html",
+    "fields": [],
+    "health": [],
+    "notice": "Un volume neuf sur le dossier HTML peut masquer le contenu initial selon l’image ; utilisez un dossier projet si nécessaire.",
+    "capabilities": []
+  },
+  {
+    "id": "apache",
+    "name": "Apache HTTPD",
+    "category": "Web & proxy",
+    "description": "Servez vos sites avec un serveur HTTP éprouvé.",
+    "image": "httpd:2.4-alpine",
+    "versions": [
+      "httpd:2.4-alpine"
+    ],
+    "port": 80,
+    "volume": "/usr/local/apache2/htdocs",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "traefik",
+    "name": "Traefik",
+    "category": "Web & proxy",
+    "description": "Le point d’entrée configurable de vos services.",
+    "image": "traefik:v3.5",
+    "versions": [
+      "traefik:v3.5"
+    ],
+    "port": 80,
+    "volume": "",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "caddy",
+    "name": "Caddy",
+    "category": "Web & proxy",
+    "description": "Votre serveur Web, avec une configuration concise.",
+    "image": "caddy:2-alpine",
+    "versions": [
+      "caddy:2-alpine"
+    ],
+    "port": 80,
+    "volume": "/data",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "npm",
+    "name": "Nginx Proxy Manager",
+    "category": "Web & proxy",
+    "description": "Une interface Web pour gérer vos reverse proxies.",
+    "image": "jc21/nginx-proxy-manager:2",
+    "versions": [
+      "jc21/nginx-proxy-manager:2"
+    ],
+    "port": 81,
+    "volume": "/data",
+    "fields": [],
+    "health": [],
+    "notice": "Ports 80/443 et volume /etc/letsencrypt supplémentaires à configurer pour un proxy HTTPS complet.",
+    "capabilities": []
+  },
+  {
+    "id": "haproxy",
+    "name": "HAProxy",
+    "category": "Web & proxy",
+    "description": "Répartissez le trafic entre vos services.",
+    "image": "haproxy:3.2-alpine",
+    "versions": [
+      "haproxy:3.2-alpine"
+    ],
+    "port": 80,
+    "volume": "/usr/local/etc/haproxy",
+    "fields": [],
+    "health": [],
+    "notice": "Fournissez un fichier haproxy.cfg valide dans le dossier monté avant le démarrage.",
+    "capabilities": []
+  },
+  {
+    "id": "php",
+    "name": "PHP-FPM",
+    "category": "Web & proxy",
+    "description": "Un moteur PHP-FPM à connecter à votre serveur Web.",
+    "image": "php:8.3-fpm-alpine",
+    "versions": [
+      "php:8.3-fpm-alpine"
+    ],
+    "port": 9000,
+    "volume": "/var/www/html",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "glpi",
+    "name": "GLPI",
+    "category": "Entreprise",
+    "description": "Inventaire et assistance IT, avec votre base MariaDB.",
+    "image": "glpi/glpi:latest",
+    "versions": [
+      "glpi/glpi:latest"
+    ],
+    "port": 80,
+    "volume": "/var/glpi",
+    "fields": [
+      {
+        "key": "GLPI_DB_HOST",
+        "label": "GLPI_DB_HOST",
+        "secret": false,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "GLPI_DB_NAME",
+        "label": "GLPI_DB_NAME",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      },
+      {
+        "key": "GLPI_DB_USER",
+        "label": "GLPI_DB_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "GLPI_DB_PASSWORD",
+        "label": "GLPI_DB_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Une base MariaDB/MySQL opérationnelle sur le même réseau est nécessaire. La configuration applicative reste à terminer dans GLPI.",
+    "capabilities": []
+  },
+  {
+    "id": "nextcloud",
+    "name": "Nextcloud",
+    "category": "Entreprise",
+    "description": "Un espace collaboratif pour vos fichiers et vos équipes.",
+    "image": "nextcloud:31-apache",
+    "versions": [
+      "nextcloud:31-apache"
+    ],
+    "port": 80,
+    "volume": "/var/www/html",
+    "fields": [
+      {
+        "key": "NEXTCLOUD_ADMIN_USER",
+        "label": "NEXTCLOUD_ADMIN_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "NEXTCLOUD_ADMIN_PASSWORD",
+        "label": "NEXTCLOUD_ADMIN_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "odoo",
+    "name": "Odoo",
+    "category": "Entreprise",
+    "description": "Vos applications métier, liées à PostgreSQL.",
+    "image": "odoo:18",
+    "versions": [
+      "odoo:18"
+    ],
+    "port": 8069,
+    "volume": "/var/lib/odoo",
+    "fields": [
+      {
+        "key": "HOST",
+        "label": "HOST",
+        "secret": false,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "USER",
+        "label": "USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "PASSWORD",
+        "label": "PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "PostgreSQL externe requis. HOST désigne un nom DNS accessible depuis le réseau Docker.",
+    "capabilities": []
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab CE",
+    "category": "Entreprise",
+    "description": "Un atelier Git complet, exigeant en ressources.",
+    "image": "gitlab/gitlab-ce:latest",
+    "versions": [
+      "gitlab/gitlab-ce:latest"
+    ],
+    "port": 80,
+    "volume": "/var/opt/gitlab",
+    "fields": [
+      {
+        "key": "GITLAB_ROOT_PASSWORD",
+        "label": "GITLAB_ROOT_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Plusieurs Gio de RAM et un démarrage long sont nécessaires ; ce modèle expose seulement HTTP.",
+    "capabilities": []
+  },
+  {
+    "id": "gitea",
+    "name": "Gitea",
+    "category": "Entreprise",
+    "description": "Une forge Git légère, chez vous.",
+    "image": "gitea/gitea:1",
+    "versions": [
+      "gitea/gitea:1"
+    ],
+    "port": 3000,
+    "volume": "/data",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "keycloak",
+    "name": "Keycloak",
+    "category": "Entreprise",
+    "description": "Identités et authentification pour vos applications.",
+    "image": "quay.io/keycloak/keycloak:26.4",
+    "versions": [
+      "quay.io/keycloak/keycloak:26.4"
+    ],
+    "port": 8080,
+    "volume": "/opt/keycloak/data",
+    "fields": [
+      {
+        "key": "KC_BOOTSTRAP_ADMIN_USERNAME",
+        "label": "KC_BOOTSTRAP_ADMIN_USERNAME",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "KC_BOOTSTRAP_ADMIN_PASSWORD",
+        "label": "KC_BOOTSTRAP_ADMIN_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Mode start-dev destiné au développement ; configurez TLS et une base dédiée avant production.",
+    "capabilities": []
+  },
+  {
+    "id": "wordpress",
+    "name": "WordPress",
+    "category": "Entreprise",
+    "description": "Votre site et ses contenus, connectés à MySQL.",
+    "image": "wordpress:6-apache",
+    "versions": [
+      "wordpress:6-apache"
+    ],
+    "port": 80,
+    "volume": "/var/www/html",
+    "fields": [
+      {
+        "key": "WORDPRESS_DB_HOST",
+        "label": "WORDPRESS_DB_HOST",
+        "secret": false,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "WORDPRESS_DB_USER",
+        "label": "WORDPRESS_DB_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "WORDPRESS_DB_PASSWORD",
+        "label": "WORDPRESS_DB_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "WORDPRESS_DB_NAME",
+        "label": "WORDPRESS_DB_NAME",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Base MySQL/MariaDB requise ; l’utilisateur administrateur se crée dans l’assistant WordPress.",
+    "capabilities": []
+  },
+  {
+    "id": "wazuh",
+    "name": "Wazuh Manager",
+    "category": "Sécurité & observabilité",
+    "description": "Le manager de votre plateforme de supervision sécurité.",
+    "image": "wazuh/wazuh-manager:4.12.0",
+    "versions": [
+      "wazuh/wazuh-manager:4.12.0"
+    ],
+    "port": 55000,
+    "volume": "/var/ossec/data",
+    "fields": [],
+    "health": [],
+    "notice": "Le manager seul ne fournit pas le dashboard ni l’indexeur. La stack complète nécessite plusieurs services et ports.",
+    "capabilities": []
+  },
+  {
+    "id": "zabbix",
+    "name": "Zabbix Web",
+    "category": "Sécurité & observabilité",
+    "description": "L’interface de votre plateforme de surveillance.",
+    "image": "zabbix/zabbix-web-nginx-mysql:7.0-alpine-latest",
+    "versions": [
+      "zabbix/zabbix-web-nginx-mysql:7.0-alpine-latest"
+    ],
+    "port": 8080,
+    "volume": "",
+    "fields": [
+      {
+        "key": "DB_SERVER_HOST",
+        "label": "DB_SERVER_HOST",
+        "secret": false,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MYSQL_USER",
+        "label": "MYSQL_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "MYSQL_PASSWORD",
+        "label": "MYSQL_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MYSQL_DATABASE",
+        "label": "MYSQL_DATABASE",
+        "secret": false,
+        "default": "app_db",
+        "required": true
+      },
+      {
+        "key": "ZBX_SERVER_HOST",
+        "label": "ZBX_SERVER_HOST",
+        "secret": false,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Frontend uniquement : serveur Zabbix et base MySQL externes requis.",
+    "capabilities": []
+  },
+  {
+    "id": "prometheus",
+    "name": "Prometheus",
+    "category": "Sécurité & observabilité",
+    "description": "Collectez et interrogez les métriques de vos services.",
+    "image": "prom/prometheus:v3.5.0",
+    "versions": [
+      "prom/prometheus:v3.5.0"
+    ],
+    "port": 9090,
+    "volume": "/prometheus",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "grafana",
+    "name": "Grafana",
+    "category": "Sécurité & observabilité",
+    "description": "Donnez une vue claire à vos métriques.",
+    "image": "grafana/grafana:12.2.0",
+    "versions": [
+      "grafana/grafana:12.2.0"
+    ],
+    "port": 3000,
+    "volume": "/var/lib/grafana",
+    "fields": [
+      {
+        "key": "GF_SECURITY_ADMIN_USER",
+        "label": "GF_SECURITY_ADMIN_USER",
+        "secret": false,
+        "default": "dev_user",
+        "required": true
+      },
+      {
+        "key": "GF_SECURITY_ADMIN_PASSWORD",
+        "label": "GF_SECURITY_ADMIN_PASSWORD",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "sonarqube",
+    "name": "SonarQube",
+    "category": "Sécurité & observabilité",
+    "description": "Analysez la qualité du code de vos projets.",
+    "image": "sonarqube:community",
+    "versions": [
+      "sonarqube:community"
+    ],
+    "port": 9000,
+    "volume": "/opt/sonarqube/data",
+    "fields": [],
+    "health": [],
+    "notice": "Vérifiez vm.max_map_count et les limites système ; DockForge ne les change pas silencieusement.",
+    "capabilities": []
+  },
+  {
+    "id": "pihole",
+    "name": "Pi-hole",
+    "category": "Sécurité & observabilité",
+    "description": "Une interface pour administrer votre filtrage DNS.",
+    "image": "pihole/pihole:latest",
+    "versions": [
+      "pihole/pihole:latest"
+    ],
+    "port": 80,
+    "volume": "/etc/pihole",
+    "fields": [
+      {
+        "key": "FTLCONF_webserver_api_password",
+        "label": "FTLCONF_webserver_api_password",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Ce modèle expose l’interface Web ; DNS exige aussi 53/TCP et 53/UDP, sans conflit avec le DNS de l’hôte.",
+    "capabilities": []
+  },
+  {
+    "id": "wireguard",
+    "name": "WireGuard",
+    "category": "Sécurité & observabilité",
+    "description": "Préparez votre VPN et sa configuration réseau.",
+    "image": "lscr.io/linuxserver/wireguard:latest",
+    "versions": [
+      "lscr.io/linuxserver/wireguard:latest"
+    ],
+    "port": 51820,
+    "volume": "/config",
+    "fields": [
+      {
+        "key": "PUID",
+        "label": "PUID",
+        "secret": false,
+        "default": "1000",
+        "required": true
+      },
+      {
+        "key": "PGID",
+        "label": "PGID",
+        "secret": false,
+        "default": "1000",
+        "required": true
+      },
+      {
+        "key": "TZ",
+        "label": "TZ",
+        "secret": false,
+        "default": "UTC",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Le port est UDP et nécessite NET_ADMIN ainsi qu’une configuration WireGuard adaptée au noyau.",
+    "capabilities": [
+      "NET_ADMIN"
+    ]
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "category": "IA & données",
+    "description": "Un moteur local pour vos modèles de langage.",
+    "image": "ollama/ollama:latest",
+    "versions": [
+      "ollama/ollama:latest"
+    ],
+    "port": 11434,
+    "volume": "/root/.ollama",
+    "fields": [],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "openwebui",
+    "name": "Open WebUI",
+    "category": "IA & données",
+    "description": "Une interface pour dialoguer avec vos modèles locaux.",
+    "image": "ghcr.io/open-webui/open-webui:main",
+    "versions": [
+      "ghcr.io/open-webui/open-webui:main"
+    ],
+    "port": 8080,
+    "volume": "/app/backend/data",
+    "fields": [
+      {
+        "key": "OLLAMA_BASE_URL",
+        "label": "OLLAMA_BASE_URL",
+        "secret": false,
+        "default": "http://host.docker.internal:11434",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "jupyter",
+    "name": "JupyterLab",
+    "category": "IA & données",
+    "description": "Vos notebooks et outils de science des données.",
+    "image": "quay.io/jupyter/datascience-notebook:latest",
+    "versions": [
+      "quay.io/jupyter/datascience-notebook:latest"
+    ],
+    "port": 8888,
+    "volume": "/home/jovyan/work",
+    "fields": [
+      {
+        "key": "JUPYTER_TOKEN",
+        "label": "JUPYTER_TOKEN",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "qdrant",
+    "name": "Qdrant",
+    "category": "IA & données",
+    "description": "Une base vectorielle pour vos recherches sémantiques.",
+    "image": "qdrant/qdrant:latest",
+    "versions": [
+      "qdrant/qdrant:latest"
+    ],
+    "port": 6333,
+    "volume": "/qdrant/storage",
+    "fields": [
+      {
+        "key": "QDRANT__SERVICE__API_KEY",
+        "label": "QDRANT__SERVICE__API_KEY",
+        "secret": true,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Les tags sont configurables ; leur disponibilité dépend du registre. Les identifiants applicatifs non configurables par variable restent à initialiser dans le service.",
+    "capabilities": []
+  },
+  {
+    "id": "milvus",
+    "name": "Milvus",
+    "category": "IA & données",
+    "description": "Un moteur vectoriel à relier à etcd et MinIO.",
+    "image": "milvusdb/milvus:v2.6.2",
+    "versions": [
+      "milvusdb/milvus:v2.6.2"
+    ],
+    "port": 19530,
+    "volume": "/var/lib/milvus",
+    "fields": [
+      {
+        "key": "ETCD_ENDPOINTS",
+        "label": "ETCD_ENDPOINTS",
+        "secret": false,
+        "default": "",
+        "required": true
+      },
+      {
+        "key": "MINIO_ADDRESS",
+        "label": "MINIO_ADDRESS",
+        "secret": false,
+        "default": "",
+        "required": true
+      }
+    ],
+    "health": [],
+    "notice": "Dépendances etcd et MinIO nécessaires. Configurez leurs adresses et le réseau avant le lancement.",
+    "capabilities": []
+  },
+  {
+    "id": "custom",
+    "name": "Image personnelle",
+    "category": "Personnalisé",
+    "description": "Votre image, vos variables et votre commande.",
+    "image": "alpine:3.20",
+    "versions": [
+      "alpine:3.20"
+    ],
+    "port": 8080,
+    "volume": "",
+    "fields": [],
+    "health": [],
+    "notice": "Configurez le port, le volume, les variables et la commande selon la documentation de votre image.",
+    "capabilities": []
+  }
+]

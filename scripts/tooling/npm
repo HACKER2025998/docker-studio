@@ -1,0 +1,11 @@
+#!/bin/sh
+# Le lanceur connaît npm avant d’ajouter ce dossier au PATH, ce qui évite une récursion.
+set -eu
+if [ -n "${DOCKFORGE_NPM_CLI:-}" ]; then
+  exec node "$DOCKFORGE_NPM_CLI" "$@"
+fi
+if [ -n "${DOCKFORGE_REAL_NPM:-}" ]; then
+  exec "$DOCKFORGE_REAL_NPM" "$@"
+fi
+printf '%s\n' 'Lancez dev.sh ou installez npm avec votre gestionnaire de paquets.' >&2
+exit 1

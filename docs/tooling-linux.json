@@ -1,0 +1,7 @@
+{
+  "tool": "Docker Buildx",
+  "version": "v0.38.1",
+  "sha256": "e25d5cd675092bb5d1d03632fdc46cdf3fede7b514dc5f023a105e00d3ce5ad4",
+  "source": "https://github.com/docker/buildx/releases/download/v0.38.1/buildx-v0.38.1.linux-amd64",
+  "scope": "Plugin CLI utilisateur ; aucun démon ou conteneur modifié."
+}

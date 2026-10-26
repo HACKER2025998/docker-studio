@@ -1,0 +1,9 @@
+{
+  "platform": "Linux",
+  "scope": "Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.",
+  "desktop": {
+    "rss_kib": 635708,
+    "pss_kib": 264726,
+    "processes": 3
+  }
+}

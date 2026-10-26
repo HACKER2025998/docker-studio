@@ -1,0 +1,3026 @@
+/* @ligne Charge les outils de style compilés localement avec l’application. */
+@import "tailwindcss";
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+:root {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #24324b;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f7f8fc;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-synthesis: none;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 14px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.5;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  color-scheme: light;
+}
+* {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-sizing: border-box;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+body {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+button,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+input,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+select,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+textarea {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font: inherit;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+button {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: inline-flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 8px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  cursor: pointer;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #dce2ed;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #34425b;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 9px 13px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 600;
+  /* @ligne Adoucit ce changement visuel ; la préférence de réduction des animations est traitée plus bas. */
+  transition:
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    background 0.15s,
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    border-color 0.15s;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+button:hover {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f0f4fc;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #bccbe2;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+button:disabled {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  opacity: 0.52;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  cursor: not-allowed;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+button:focus-visible,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+a:focus-visible,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+summary:focus-visible {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  outline: 3px solid #709ff7;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  outline-offset: 3px;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+input,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+select,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+textarea {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 100%;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-height: 42px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #273650;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #d6deeb;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 9px 11px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  outline: none;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+input:focus,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+select:focus,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+textarea:focus {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #3975e9;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 0 0 3px #2563eb16;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+textarea {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  resize: vertical;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+label {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 650;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #43516a;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+h1,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+h2,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+h3,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+p {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+h1 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 30px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: -1px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.2;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #1b2840;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+h2 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 19px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.35;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: -0.4px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 9px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+h3 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 15px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 5px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+p {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+small {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+code,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+pre,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+kbd {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+pre {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: pre-wrap;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f3f5fa;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e5e9f1;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 10px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 16px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-height: 420px;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: auto;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+code {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+fieldset {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e4e9f1;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 10px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 15px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+legend {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 650;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 0 5px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+a {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2159d3;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-decoration: none;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.app-shell {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-height: 100vh;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.sidebar {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 246px;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: fixed;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  inset: 0 auto 0 0;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-right: 1px solid #e8ecf3;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 30px 17px 18px;
+  /* @ligne Définit l’ordre de superposition, notamment pour les dialogues et notifications. */
+  z-index: 20;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.brand {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #1b2944;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 23px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 750;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: -0.7px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 0 11px 25px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.brand-symbol {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 42px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 43px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #2563eb;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 12px;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #fff;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 4px 12px #2563eb27;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.brand-second {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 2.5px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5d6676;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: -2px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.brand-second span {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #edf3ff;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 1px 5px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2f5fbe;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 4px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.workspace-label {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 10px;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0 0 28px;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e8ecf3;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 10px 8px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 600;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.workspace-label small {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b6475;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 400;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.workspace-label > svg {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6673;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.avatar {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 30px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 30px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f1ecff;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7554a4;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-group {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 27px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-group > p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 1.4px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b6371;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0 12px 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-item {
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: flex-start;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 100%;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 11px 12px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 2px 0;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 550;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a657c;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-item.active {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #245ed4;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #edf3ff;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 650;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-item:hover {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f3f6fc;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.nav-badge {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 1px 6px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 5px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #dce8ff;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.sidebar-bottom {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: auto;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.local-card {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 16px 14px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: linear-gradient(135deg, #f5f8ff, #f6f9f8);
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e8edf5;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #4c6a80;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.local-card > svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3364ab;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.local-card strong {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #405676;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.local-card p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5d6777;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 6px 0 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.local-card > span {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 6px;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 650;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2f6f5c;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.local-card i,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.environment-pill i,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-ready span {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 6px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 6px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 50%;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #16a578;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: inline-block;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.help-link {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: flex-start;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 19px 7px 13px;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 100%;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5c667c;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.help-link svg:last-child {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.version {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5d6572;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  padding-left: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.app-main {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: 246px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: calc(100% - 246px);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.topbar {
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 76px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #e6ebf3;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #ffffffd9;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 0 38px;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 16px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.breadcrumbs {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 13px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5d6571;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.breadcrumbs strong {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #4b5a73;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 550;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.breadcrumbs > svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f636d;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.topbar-actions {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 14px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.environment-pill {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #835f37;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff9ee;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #f4e7d1;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 20px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 5px 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.environment-pill i {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #cd9c48;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.environment-pill.ready {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #247258;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f0faf6;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #dcefe5;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.environment-pill.ready i {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #16a578;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.primary {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #2563eb;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #fff;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #2563eb;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 3px 6px #2563eb12;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.primary:hover {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #1d55cc;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #1d55cc;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.compact {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 8px 12px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.icon-button {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 7px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: transparent;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.mobile-menu {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: none;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+main {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 33px 38px 18px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-width: 1600px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: auto;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  outline: none;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.page-title {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 27px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.page-title p {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #596272;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.eyebrow {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #576579;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 1.55px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.eyebrow > span {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #7c9fe2;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 5px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 5px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 50%;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.outline-icon {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e3e9f3;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #596374;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 54px;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 54px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 16px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #ffffffb0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.browser-notice {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 9px;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 18px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #57667d;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eef3fb;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 10px 13px;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #dce6f4;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 9px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.browser-notice button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 2px 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2c60b9;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.forge-hero {
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 247px;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: hidden;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: relative;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #dee7f8;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 16px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background:
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    radial-gradient(ellipse at 92% 80%, #dce9ff88, transparent 65%),
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    linear-gradient(110deg, #eff5ff, #f4f7ff 65%, #eaf1fe);
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 31px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-copy {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 27px 32px;
+  /* @ligne Définit l’ordre de superposition, notamment pour les dialogues et notifications. */
+  z-index: 1;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-tag {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 6px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 8px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 1.2px;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 650;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #43669b;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-copy h2 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 27px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: -0.9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #283e66;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.25;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-copy em {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-style: normal;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2b5fbc;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-copy p {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #55667e;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.65;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-link {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 5px 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2e61b7;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: flex-start;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-visual {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 350px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 247px;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  right: 14px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-orbit {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px dashed #c0d3f4;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 50%;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(-22deg);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.orbit-one {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  inset: 32px 28px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.orbit-two {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  inset: 57px -15px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(30deg);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-core {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: 83px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  left: 136px;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 82px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 82px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: linear-gradient(135deg, #fff, #e7f0ff);
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2d60b6;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #c9dbfa;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 22px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 17px 28px #6993db25;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(-9deg);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.floating-box {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e0e8f6;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 13px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 10px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #ffffffdd;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 6px 15px #5c80b51a;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 8px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3e668e;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.floating-box span {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-family: monospace;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a6373;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.box-one {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  left: 24px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: 40px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(-9deg);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.box-two {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  right: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: 73px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(8deg);
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.box-three {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  left: 39px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  bottom: 30px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  transform: rotate(5deg);
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #8e5350;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.hero-ready {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 6px;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  right: 21px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  bottom: 31px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 8px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #48685a;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e0ece7;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 6px 9px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 7px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.section-heading {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 16px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 18px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.section-heading h2 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 16px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 5px;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.section-heading p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6776;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.count {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #e9eef6;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #556479;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 2px 6px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 5px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.search-input {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: row;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e1e7f0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 0 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 235px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5e6671;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 400;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.search-input input {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: none;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 8px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-height: 35px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.search-input kbd {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 8px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5e646d;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e7ebf1;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 1px 4px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 3px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.category-tabs {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 5px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-wrap: wrap;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 21px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #e5eaf3;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  padding-bottom: 13px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.category-tabs button {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 7px 10px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5d677a;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 550;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.category-tabs button.selected {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2b5fbf;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #e8f0ff;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.catalog-grid {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 16px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-card {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e4e9f2;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 12px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px 18px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+  /* @ligne Adoucit ce changement visuel ; la préférence de réduction des animations est traitée plus bas. */
+  transition:
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    border-color 0.15s,
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    box-shadow 0.15s;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-card:hover {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #b9cdf0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 7px 20px #23447708;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.card-top {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-icon {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 45px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 45px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.color-blue {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #ecf3fc;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3e648b;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.color-teal {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eaf7f3;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #317162;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.color-purple {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f4effd;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #77559f;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.color-orange {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fcf2e8;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7e5f39;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.category-mini {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 8px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b626e;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-width: 120px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: right;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-card h3 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 15px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #30415b;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: -0.25px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 5px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-card > p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6673;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 13px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-facts {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 13px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 16px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.service-facts > span {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 5px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a6272;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.card-footer {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 4px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-top: 1px solid #edf0f6;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 11px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.card-footer code {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a6271;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: hidden;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-overflow: ellipsis;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.card-footer button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3962af;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #e2ebfa;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f3f7ff;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 5px 9px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 6px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.quiet-footer {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px 2px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #586476;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 9px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.quiet-footer > svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #55647c;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.quiet-footer p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.quiet-footer button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 3px 0;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: transparent;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #4b638d;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.app-footer {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-top: 1px solid #e5eaf3;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 8px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6773;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  padding-top: 16px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 26px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.app-footer > span:last-child {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 5px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.app-footer svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #60666e;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.panel {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e3e9f2;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 13px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 24px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.workspace-stack {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 20px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.two-columns {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: minmax(0, 1.3fr) minmax(310px, 1fr);
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 20px;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: start;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.muted {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #596272;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.7;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.button-row {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 8px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-wrap: wrap;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 15px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.form-grid {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: 1fr 1fr;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 18px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 22px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.full {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  grid-column: 1/-1;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-label {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: row;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 9px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-label input {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 15px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 15px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-height: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  accent-color: #2563eb;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.input-with-actions {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #d6deeb;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: hidden;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.input-with-actions input {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: none;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.input-with-actions button {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 0;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 9px;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.hint,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.alert {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: flex-start;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 10px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 13px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f4f7fc;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #576780;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 12px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: pre-wrap;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.hint > svg,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.alert > svg {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 2px;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.hint p,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.alert p {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.error {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff2f1;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #ab413b;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #f7d8d6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.warning {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff9ed;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #795f26;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #f1e4c6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.empty-state {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 42px 18px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: center;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a6271;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.empty-state > svg {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0 auto 16px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #596575;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.empty-state h3 {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #52637e;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.empty-state p {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-width: 420px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0 auto 15px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Garde suffisamment d’espace entre les lignes pour faciliter la lecture. */
+  line-height: 1.8;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.doctor-intro {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 18px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 25px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e2e8f2;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 13px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.doctor-intro > button {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.doctor-intro p {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b6677;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.status-orb {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff6e9;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7b613c;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 65px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 65px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 20px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.status-orb.ready {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #e8f7ef;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #267051;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-list {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e3e9f2;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 12px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 4px 20px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-row {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 15px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 22px 4px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #edf0f6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-row:last-child {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-row > div {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-row h3 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 13px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-row p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5e6675;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-dot {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 28px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 28px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 50%;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff4e1;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7b5f2d;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.check-dot.ok {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #e8f7ef;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #1b7250;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.badge {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: inline-block;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 5px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f0f3f8;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #556277;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 4px 7px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: nowrap;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.green {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eaf8f1;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #296e55;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.amber {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff6e8;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7f6030;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.note-panel {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 13px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eff4fc;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e2eaf8;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #52637c;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.note-panel p {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.package-grid {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: repeat(3, 1fr);
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.image-row {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 10px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 12px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #eef1f6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.image-row button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-button {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 100%;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 20px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #ecf9f2;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #206f50;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #cce9db;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.wide {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 100%;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 12px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-list {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 20px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card {
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: flex-start;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: left;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 15px 12px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card.selected {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #9dbff8;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f4f8ff;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card > span:nth-child(2) {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 0;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.vault-card strong,
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.vault-card code,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card small {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card strong {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card code {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b6573;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 3px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.vault-card small {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #58667a;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-top: 4px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.container-cube {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eef3fc;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #50637f;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 39px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 39px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 9px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-shrink: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.lifecycle button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 7px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.credentials dl {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: 85px 1fr;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 10px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 24px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.credentials dt {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6673;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.credentials dd {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.danger {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #aa4039;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-color: #edc3bf;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff3f1;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.toolbar {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 14px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-wrap: wrap;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 24px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.toolbar > .search-input {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.toolbar > label:not(.search-input) {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.command-list > div {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 13px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #eef1f6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.command-list code {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: pre-wrap;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-root {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eef4ff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #d8e5fa;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #446598;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-root span {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-left: auto;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #56657a;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-hosts {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Répartit les colonnes selon la largeur disponible. */
+  grid-template-columns: repeat(3, 1fr);
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 20px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 28px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-hosts article {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e0e7f2;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fcfdff;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 11px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 20px;
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: relative;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-hosts svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #556680;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-hosts h3 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 13px;
+}
+/* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+.network-hosts p,
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.network-hosts small {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5a677c;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.logical-link {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: absolute;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 28px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-left: 1px dashed #aabfe1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  left: 50%;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: -29px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.file-list {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  list-style: none;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 20px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.file-list li {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 8px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f6f8fc;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 8px 10px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 7px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  margin-bottom: 7px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.file-list li > span {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.qr {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 20px auto;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 180px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 180px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.share-url {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: center;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3766b0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.pin {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: center;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 30px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font-family: monospace;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  letter-spacing: 7px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #2a5ca7;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 14px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.fingerprint {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: block;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 12px 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+summary {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  cursor: pointer;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.peer {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 12px;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 12px 0;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.peer > span {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.peer select {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 135px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-height: 34px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.modal-backdrop {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: fixed;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  inset: 0;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #192e4d55;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  backdrop-filter: blur(4px);
+  /* @ligne Définit l’ordre de superposition, notamment pour les dialogues et notifications. */
+  z-index: 50;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: flex-end;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.forge-dialog {
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 100%;
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: min(780px, 94vw);
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: -10px 0 60px #21345620;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  outline: none;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-header {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: flex-start;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 27px 30px 21px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #e8edf5;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-header h2 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 23px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-header p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6775;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.steps {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  list-style: none;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 19px 30px;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 22px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fafbfe;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-bottom: 1px solid #e9edf6;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.steps li {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 7px;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5f6570;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.steps span {
+  /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+  width: 22px;
+  /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+  height: 22px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 50%;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eef1f7;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: grid;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  place-items: center;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.steps li.active {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #3b61a2;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.steps li.active span {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #fff;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #4179de;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-body {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 13px 30px 28px;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: auto;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex: 1;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-footer {
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px 30px;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: space-between;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-top: 1px solid #e6ebf4;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fbfcfe;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-footer > span {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #5b6471;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.dialog-footer button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.port-status {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: center;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 10px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 8px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.port-status.good {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #eff9f3;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #336c53;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.port-status.warn {
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff7e8;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #7c5f2c;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.port-status button {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.summary-box {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  flex-direction: column;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 9px;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 20px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f5f8fe;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e4ebf7;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 10px;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 11px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #55657f;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.summary-box strong {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #405e8d;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.operation-log {
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #e0e7f1;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #f6f8fc;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 15px;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 10px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  font: 10px/1.6 monospace;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-height: 260px;
+  /* @ligne Contrôle le contenu dépassant du cadre pour maintenir la vue utilisable. */
+  overflow: auto;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 15px 0;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #566780;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.operation-log p {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 5px 0;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: pre-wrap;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.operation-log span {
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: inline-block;
+  /* @ligne Hiérarchise visuellement le texte sans dépendre seulement de la couleur. */
+  font-weight: 700;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #44659a;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  min-width: 55px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-panel {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  text-align: center;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 45px 15px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-panel > svg {
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #1e7353;
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0 auto 18px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-panel h3 {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 23px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #37705a;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-panel p {
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #59675f;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.success-panel .button-row {
+  /* @ligne Répartit les enfants sur l’axe principal du groupe. */
+  justify-content: center;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.toast {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: fixed;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  bottom: 24px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  right: 24px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  max-width: 550px;
+  /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+  display: flex;
+  /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+  align-items: flex-start;
+  /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+  gap: 15px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 1px solid #dce5f3;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  border-left: 4px solid #4c7cce;
+  /* @ligne Arrondit les angles selon la hiérarchie visuelle du studio. */
+  border-radius: 12px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  box-shadow: 0 10px 40px #1f385325;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 18px 16px;
+  /* @ligne Définit l’ordre de superposition, notamment pour les dialogues et notifications. */
+  z-index: 80;
+  /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+  font-size: 12px;
+  /* @ligne Choisit la couleur de premier plan pour préserver la lisibilité sur le fond associé. */
+  color: #526480;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  white-space: pre-wrap;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  overflow-wrap: anywhere;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.toast p {
+  /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+  margin: 0;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.skip-link {
+  /* @ligne Définit le repère de placement de cet élément dans la fenêtre. */
+  position: fixed;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: -60px;
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  left: 20px;
+  /* @ligne Définit le fond de cet élément dans le thème clair. */
+  background: #fff;
+  /* @ligne Délimite le composant pour rendre sa frontière perceptible. */
+  border: 2px solid #2563eb;
+  /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+  padding: 12px;
+  /* @ligne Définit l’ordre de superposition, notamment pour les dialogues et notifications. */
+  z-index: 100;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.skip-link:focus {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  top: 10px;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+.spin {
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  animation: spin 1s linear infinite;
+}
+/* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+@keyframes spin {
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  to {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    transform: rotate(360deg);
+  }
+}
+/* @ligne Adapte cette disposition à la largeur ou aux préférences du système. */
+@media (min-width: 1650px) {
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .catalog-grid {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+/* @ligne Adapte cette disposition à la largeur ou aux préférences du système. */
+@media (max-width: 1180px) {
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .sidebar {
+    /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+    width: 215px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    padding-left: 12px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    padding-right: 12px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .app-main {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    margin-left: 215px;
+    /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+    width: calc(100% - 215px);
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  main {
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 27px 25px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .topbar {
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 0 25px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-visual {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    right: -35px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    transform: scale(0.85);
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-copy {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    padding-left: 25px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-copy h2 {
+    /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+    font-size: 24px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .catalog-grid {
+    /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+    gap: 12px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .service-card {
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 15px 14px 0;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .category-mini {
+    /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+    font-size: 7px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .two-columns {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-copy {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    max-width: 65%;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .section-heading {
+    /* @ligne Aligne les enfants sur l’axe transversal du groupe. */
+    align-items: flex-start;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    flex-wrap: wrap;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .topbar-actions {
+    /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+    gap: 8px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .environment-pill {
+    /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+    font-size: 9px;
+  }
+}
+/* @ligne Adapte cette disposition à la largeur ou aux préférences du système. */
+@media (max-width: 850px) {
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .sidebar {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    transform: translateX(-100%);
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .menu-open .sidebar {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    transform: translateX(0);
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    box-shadow: 10px 0 50px #20365730;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .app-main {
+    /* @ligne Fixe ou borne la largeur dans la disposition courante. */
+    width: 100%;
+    /* @ligne Règle l’espacement extérieur par rapport aux éléments voisins. */
+    margin: 0;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .mobile-menu {
+    /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+    display: inline-flex;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .topbar {
+    /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+    height: 65px;
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 0 18px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .topbar-actions .environment-pill {
+    /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+    display: none;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  main {
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 24px 18px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .catalog-grid {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-visual {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    opacity: 0.5;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    right: -75px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-copy {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    max-width: 85%;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .browser-notice {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    flex-wrap: wrap;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .doctor-intro {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    flex-wrap: wrap;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .doctor-intro > button {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    margin-left: 0;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .page-title h1 {
+    /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+    font-size: 25px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .app-footer {
+    /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+    gap: 20px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .forge-hero {
+    /* @ligne Fixe ou borne la hauteur dans la disposition courante. */
+    height: 245px;
+  }
+}
+/* @ligne Adapte cette disposition à la largeur ou aux préférences du système. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    animation: none !important;
+    /* @ligne Adoucit ce changement visuel ; la préférence de réduction des animations est traitée plus bas. */
+    transition: none !important;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    scroll-behavior: auto !important;
+  }
+}
+/* @ligne Adapte cette disposition à la largeur ou aux préférences du système. */
+@media (max-width: 520px) {
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .catalog-grid {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: 1fr;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-visual {
+    /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+    display: none;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .hero-copy {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    max-width: 100%;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .page-corner {
+    /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+    display: none;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .breadcrumbs > span {
+    /* @ligne Choisit le modèle de disposition des enfants de cet élément. */
+    display: none;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .form-grid {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: 1fr;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .form-grid > * {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    grid-column: 1;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .steps {
+    /* @ligne Sépare régulièrement les éléments de cette grille ou de ce groupe flex. */
+    gap: 9px;
+    /* @ligne Réserve l’espace intérieur entre le contenu et son contour. */
+    padding: 15px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .steps li {
+    /* @ligne Règle la taille du texte en cohérence avec le niveau d’information. */
+    font-size: 8px;
+  }
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  .dialog-header,
+  /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+  .dialog-body,
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .dialog-footer {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    padding-left: 18px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    padding-right: 18px;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .network-hosts {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: 1fr;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .package-grid {
+    /* @ligne Répartit les colonnes selon la largeur disponible. */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .quiet-footer {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    flex-wrap: wrap;
+  }
+  /* @ligne Applique le groupe de règles suivant à ce composant ou à cette condition. */
+  .toast {
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    right: 10px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    bottom: 10px;
+    /* @ligne Complète cette propriété de mise en page, sans changer le contenu métier. */
+    left: 10px;
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "version": "2.0.0-alpha.1",
+  "reference_date_utc": "2026-10-25",
+  "platform": "Linux-7.2.9-arch1-1-x86_64-with-glibc2.44",
+  "checks": {
+    "rust_core": {
+      "passed": 11,
+      "docker_tests_ignored_by_default": 2
+    },
+    "docker_live": {
+      "passed": 2,
+      "scenarios": [
+        "postgres_provisioning",
+        "real_buildkit"
+      ]
+    },
+    "playwright": {
+      "passed": 4,
+      "axe_views": 7,
+      "axe_dialog": true
+    },
+    "clippy_all_targets": "passed with -D warnings",
+    "frontend": "TypeScript strict + Vite build passed",
+    "comment_annotations": "Rust, TypeScript, JSX, CSS et client LAN ; JavaScript émis comparé par AST",
+    "native_desktop": "started for eight seconds, empty isolated profile",
+    "linux_debian": "built and archive contents inspected"
+  },
+  "not_certified": [
+    "Installation Debian sur machine vierge",
+    "Windows et macOS natifs",
+    "Signature/notarisation et publication des registres",
+    "Toutes les variantes/architectures du catalogue",
+    "Charge LAN d’une classe entière"
+  ],
+  "inputs": [
+    {
+      "file": "01_DockForge_Studio_Prompt_Maitre_Architecture_A_Z_v2.docx",
+      "sha256": "4d7d67688fb9d4fc540858d22d70652c8ec048987476d4cf4c3c2039856a8335",
+      "extra_text": []
+    },
+    {
+      "file": "02_DockForge_Studio_Cahier_Des_Charges_Et_README_OpenSource_v2.docx",
+      "sha256": "1c3921d9dbf93fc88b7cbe45ddcffb2917d928be52f8a123b5a6615cfa269085",
+      "extra_text": []
+    }
+  ],
+  "resources": {
+    "platform": "Linux",
+    "scope": "Pics par métrique durant huit secondes de démarrage, écran Doctor, profil vide, processus et descendants inclus. Pas une mesure de charge ni une garantie Windows/macOS.",
+    "desktop": {
+      "rss_kib": 635708,
+      "pss_kib": 264726,
+      "processes": 3
+    }
+  },
+  "package": {
+    "file": "DockForge Studio_2.0.0-alpha.1_amd64.deb",
+    "bytes": 6892682,
+    "sha256": "c13f2e9c00878c9a6ac950e08dd5dcc0f77aed6df4710b0ef3a73cb75433305e",
+    "installed_paths": [
+      "usr",
+      "usr/share",
+      "usr/share/applications",
+      "usr/share/applications/DockForge Studio.desktop",
+      "usr/share/icons",
+      "usr/share/icons/hicolor",
+      "usr/share/icons/hicolor/256x256@2",
+      "usr/share/icons/hicolor/256x256@2/apps",
+      "usr/share/icons/hicolor/256x256@2/apps/dockforge.png",
+      "usr/share/icons/hicolor/128x128",
+      "usr/share/icons/hicolor/128x128/apps",
+      "usr/share/icons/hicolor/128x128/apps/dockforge.png",
+      "usr/share/icons/hicolor/32x32",
+      "usr/share/icons/hicolor/32x32/apps",
+      "usr/share/icons/hicolor/32x32/apps/dockforge.png",
+      "usr/bin",
+      "usr/bin/dockforge"
+    ]
+  },
+  "doctor": {
+    "ready": true
+  },
+  "rust": "rustc 1.99.0 (b940084d7 2026-09-28) (Arch Linux rust 1:1.99.0-1)",
+  "node": "v26.11.1",
+  "docker": "29.9.0"
+}

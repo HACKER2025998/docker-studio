@@ -1,0 +1,57 @@
+# Protocole de recette
+
+## Mesures et traçabilité
+
+Pour toute livraison, conserver le commit ou l’empreinte des sources, le système, la version Rust/Node, les lockfiles, le démon Docker, les commandes exécutées et leur résultat. Les rapports ne doivent contenir aucun vrai mot de passe.
+
+Les tests locaux couvrent le moteur sans WebKit, le contrat Tauri, l’interface et des services réels. Un test ignoré n’est pas un test réussi. Les deux tests Docker doivent être déclenchés explicitement.
+
+## Coffre et sauvegarde
+
+1. Créer une fiche avec un secret synthétique reconnaissable.
+2. Vérifier qu’aucun fichier SQLite/WAL ne contient ce secret en clair.
+3. Déchiffrer la fiche avec sa bonne clé et son ID.
+4. Modifier un octet du ciphertext, puis l’ID authentifié : les deux lectures doivent échouer.
+5. Verrouiller et vérifier le refus de lecture.
+6. Exporter une sauvegarde `.dfv`, refuser une mauvaise phrase et restaurer dans un profil avec une autre clé locale.
+7. Restaurer une seconde fois : aucun doublon ni remplacement des fiches existantes.
+8. Vérifier qu’un export ne remplace pas un fichier déjà présent.
+
+Une recette manuelle doit compléter ces tests par un redémarrage de session système avec le trousseau natif de chaque OS. Les tests de cryptographie n’attestent pas à eux seuls le comportement d’un trousseau verrouillé de Windows ou macOS.
+
+## Docker réel
+
+Le test PostgreSQL crée un conteneur `dockforge-test-*`, publie un port loopback libre, crée un volume dédié, attend `pg_isready`, vérifie la fiche puis nettoie ses seules ressources. Le test BuildKit construit `dockforge-test-image:*`, vérifie la présence de l’image puis la retire.
+
+Avant une recette manuelle, faire une sauvegarde des données utiles et utiliser des noms dédiés. Tester ensuite port occupé, nom occupé, image sans manifeste de la bonne architecture, permissions de montage, variable obligatoire vide et image dont la commande quitte immédiatement. Ne pas effacer un volume utilisateur pour transformer un test rouge en test vert.
+
+## Interface
+
+Playwright vérifie le catalogue, les filtres, le clavier, le formulaire en trois étapes, le contrôle du port proposé et les paramètres transmis au moteur. L’adaptateur natif est simulé uniquement dans un test d’interface ; la création réelle est couverte séparément par Docker.
+
+Axe est exécuté avec les règles WCAG 2 A/AA et WCAG 2.1 AA sur les sept espaces et le formulaire. Les animations doivent avoir atteint leur état final avant la mesure du contraste. Tester aussi humainement le lecteur d’écran, le zoom 200 %, le focus de fermeture de modale et la préférence de réduction des animations.
+
+## LAN réel
+
+Un test lance un serveur TLS loopback temporaire et contrôle : refus anonyme, mauvais PIN, admission, cookie sécurisé, téléchargement partiel exact, refus de contribution en lecture, droit Contribution, refus de traversée de chemins et expulsion.
+
+La validation multi-machine doit vérifier l’empreinte du certificat, le pare-feu, le réseau Wi-Fi isolé, l’expiration, les quotas, la perte du fichier source et le comportement d’une contribution interrompue. Le mode actuel n’annonce pas une reprise d’upload par blocs.
+
+## Plateformes et paquets
+
+Vérifier sur chaque OS l’ouverture de la fenêtre, les dialogues natifs, les emplacements de données, le trousseau, l’installation/désinstallation et le transport Docker. Inspecter le paquet produit : binaire, icônes, launcher et dépendances système. Une signature n’est validée qu’avec un certificat de mainteneur réel.
+
+La taille du paquet, le RSS et le PSS doivent être mesurés, avec leur unité. Le RSS du seul parent ne représente pas la consommation complète de WebKit. Aucune mesure du projet OmniShell antérieur ne doit être attribuée à DockForge : les dépendances et le profil diffèrent.
+
+Les résultats de cette livraison sont enregistrés dans `validation.json` à la fin des vérifications. Les captures de `screenshots/` montrent uniquement des données synthétiques ou le catalogue embarqué.
+
+## Résultats locaux du 25 octobre 2026
+
+- 11 tests moteur/HTTPS/sauvegarde réussis ; les 2 scénarios Docker ignorés par défaut ont ensuite été exécutés et réussis sur le vrai démon.
+- 4 tests Playwright réussis, avec Axe sur les 7 espaces et le formulaire.
+- Compilation TypeScript/Vite et Clippy tous targets avec `-D warnings` réussis.
+- Binaire natif démarré dans un profil isolé ; diagnostic Docker prêt après installation utilisateur du plugin Buildx officiel manquant.
+- Paquet Debian de 6 892 682 octets (6,57 Mio), binaire, launcher et icônes vérifiés dans l’archive.
+- Pics sur huit secondes : 264 726 Kio PSS (258,5 Mio), 635 708 Kio RSS cumulés (620,8 Mio), trois processus. Ce profil vide de démarrage n’est pas une mesure de charge.
+
+Les détails structurés, empreintes et versions figurent dans `validation.json`, `package-linux.json`, `resources-linux.json` et `tooling-linux.json`. Aucune réussite de CI distante ou de plateforme non exécutée n’est revendiquée.

@@ -1,0 +1,1 @@
+{"main":{"identifier":"main","description":"Fenêtre locale et dialogues de fichiers choisis par l’utilisateur","local":true,"windows":["main"],"permissions":["core:default","dialog:allow-open","dialog:allow-save",{"identifier":"opener:allow-open-url","allow":[{"url":"https://docs.docker.com/*"}]}]}}
